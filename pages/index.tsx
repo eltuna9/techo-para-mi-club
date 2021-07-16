@@ -6,11 +6,9 @@ export default function Home() {
     <div className="pb-14 bg-right bg-cover bg-pan-top main-div">
       <div className="container md:pt-12 sm:pt-8 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center">
         <div className="w-5/5 md:w-4/5 mx-auto overflow-y-hidden">
-          <Image
-            className="lg:w-4/6 mx-auto mb-12 pt-6 w-12/12"
-            src={logo}
-            alt="Logo de campaña"
-          />
+          <div className="lg:w-4/6 mx-auto mb-12 pt-6 w-12/12">
+            <Image className="w-full" src={logo} alt="Logo de campaña" />
+          </div>
           <h1 className="my-4 md:text-3xl text-lg text-white font-bold leading-tight text-center mb-6 text-yellow-400">
             Ayudanos a cumplir el sueño de una comunidad
           </h1>
