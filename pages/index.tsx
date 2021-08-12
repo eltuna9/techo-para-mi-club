@@ -26,7 +26,6 @@ export default function Home() {
           <p className="leading-normal text-gray-200 text-base md:text-xl sm:text-sm mb-8 text-center lg:w-8/12 mx-auto ">
             Mientras tanto, enterate de todo en nuestro Instagram 👇
           </p>
-          <DonationsCounter amount="150.000" />
           <div className="w-full my-3 text-center ">
             <a
               className="text-3xl"
