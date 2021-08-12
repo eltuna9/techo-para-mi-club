@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { DonationsCounter } from '../components/donationsCounter'
 import logo from '../public/combo.png'
 
 export default function Home() {

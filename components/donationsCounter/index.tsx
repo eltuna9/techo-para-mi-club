@@ -9,7 +9,6 @@ interface DonationsCounterProps {
 const goalAmount = 20000000
 export function DonationsCounter(props: DonationsCounterProps) {
   const { className, amount } = props
-  // alert(extractNumberFromString(amount))
   const percentage = (
     (parseInt(extractNumberFromString(amount), 10) * 100) /
     goalAmount
