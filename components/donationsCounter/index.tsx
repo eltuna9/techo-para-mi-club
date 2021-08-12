@@ -3,33 +3,36 @@ import { extractNumberFromString } from '../../utils/stringUtils'
 
 interface DonationsCounterProps {
   className?: string
+  /** How much have we raised? */
   amount: string
 }
 const goalAmount = 20000000
 export function DonationsCounter(props: DonationsCounterProps) {
   const { className, amount } = props
+  // alert(extractNumberFromString(amount))
   const percentage = (
-    (parseInt(extractNumberFromString(amount), 10) / goalAmount) *
-    100
-  ).toFixed(2)
+    (parseInt(extractNumberFromString(amount), 10) * 100) /
+    goalAmount
+  ).toFixed(1)
 
   return (
     <div
-      className={`w-full p-6 md:p-10 lg:border-8 lg:rounded-3xl flex justify-center items-center border-t-8 border-b-8 border-white bg-blue-800 text-white shadow-md ${
+      className={`w-full p-4 md:p-10 lg:border-8 lg:rounded-3xl flex justify-center items-center border-t-8 border-b-8 border-white bg-primary text-white shadow-lg ${
         className || ''
       }`}
     >
-      <div className="absolute"></div>
-      <div className="flex flex-col items-center">
-        <div className="flex space-between">
-          <span className="text-blue-400 mb-4 text-3xl font-semibold">
+      <div className="flex justify-between w-full flex-wrap">
+        <div className="flex flex-col w-full lg:w-8/12 text-center">
+          <span className="text-secondary mb-4 text-2xl lg:text-2xl xl:text-3xl font-semibold">
             Este sueño lleva recaudado
-            <span className="text-8xl font-bold">${amount}</span>
           </span>
+          <span className="text-6xl md:text-8xl font-bold">${amount}</span>
         </div>
-        <div className="flex space-between">
-          <span className="text-8xl font-bold">{percentage}%</span>
-          <span className="text-blue-400 mb-4 text-3xl font-semibold">
+        <div className="flex flex-col w-full lg:w-4/12 text-center ">
+          <span className="text-secondary lg:text-white pt-4 text-6xl md:text-8xl font-bold">
+            {percentage}%
+          </span>
+          <span className="lg:text-secondary mb-4 text-2xl lg:text-2xl xl:text-3xl font-semibold">
             del objetivo alcanzado
           </span>
         </div>
