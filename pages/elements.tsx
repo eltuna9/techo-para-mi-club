@@ -11,7 +11,7 @@ export default function ComponentsShowcase() {
         <DonationsCounter amount="10.080.047" />
       </div>
       <div className=" w-full mx-auto py-6 bg-blue-400">
-        <h2 className="text-center text-2xl">Responsive</h2>
+        <h2 className="text-center text-2xl">Responsive Menu</h2>
         <Menu />
       </div>
     </>
