@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Image from 'next/dist/client/image'
 import { IoCloseSharp, IoMenu } from 'react-icons/io5'
+import { ActiveLink } from './ActiveLink'
 
 export default function Menu() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -30,30 +31,10 @@ export default function Menu() {
           </div>
           <div className="hidden md:flex items-center space-x-3 ">
             <div className="hidden md:flex items-center space-x-1">
-              <a
-                href=""
-                className="py-4 px-2 text-lg xl:text-2xl text-blue-500 font-semibold border-blue-500  "
-              >
-                Campaña
-              </a>
-              <a
-                href=""
-                className="py-4 px-2 text-lg xl:text-2xl text-blue-800 font-semibold hover:text-blue-500 transition duration-300"
-              >
-                Novedades
-              </a>
-              <a
-                href=""
-                className="py-4 px-2 text-lg xl:text-2xl whitespace-nowrap text-blue-800 font-semibold hover:text-blue-500 transition duration-300"
-              >
-                El club
-              </a>
-              <a
-                href=""
-                className="py-4 px-2 text-lg xl:text-2xl text-blue-800 font-semibold hover:text-blue-500 transition duration-300"
-              >
-                Gracias
-              </a>
+              <MenuLink text={'Campaña'} href={'/home'} />
+              <MenuLink text={'Novedades'} href={'/home'} />
+              <MenuLink text={'El club'} href={'/home'} />
+              <MenuLink text={'Gracias'} href={'/elements'} />
             </div>
             <a
               href=""
@@ -83,38 +64,10 @@ export default function Menu() {
         }
       >
         <ul className="px-6">
-          <li className="active">
-            <a
-              href="index.html"
-              className="block text-2xl py-3 text-blue-800 hover:text-blue-500 font-semibold transition duration-300"
-            >
-              Campaña
-            </a>
-          </li>
-          <li>
-            <a
-              href="#novedades"
-              className="block text-2xl py-3 text-blue-800 hover:text-blue-500 font-semibold transition duration-300"
-            >
-              Novedades
-            </a>
-          </li>
-          <li>
-            <a
-              href="#elClub"
-              className="block text-2xl py-3 text-blue-800 hover:text-blue-500 font-semibold transition duration-300"
-            >
-              El club
-            </a>
-          </li>
-          <li>
-            <a
-              href="#gracias"
-              className="block text-2xl py-3 text-blue-800 hover:text-blue-500 font-semibold transition duration-300"
-            >
-              Gracias
-            </a>
-          </li>
+          <ResponsiveMenuLink text={'Campaña'} href={'/home'} />
+          <ResponsiveMenuLink text={'Novedades'} href={'/home'} />
+          <ResponsiveMenuLink text={'El club'} href={'/home'} />
+          <ResponsiveMenuLink text={'Gracias'} href={'/elements'} />
           <li className="my-10">
             <a
               href=""
@@ -126,5 +79,34 @@ export default function Menu() {
         </ul>
       </div>
     </nav>
+  )
+}
+type MenuLinkProps = {
+  text: string
+  href: string
+}
+
+const MenuLink = ({ text, href }: MenuLinkProps) => {
+  const baseClassName =
+    'py-4 px-2 text-lg xl:text-2xl whitespace-nowrap hover:text-blue-500 font-semibold border-blue-500  '
+  return (
+    <ActiveLink activeClassName={baseClassName + ' text-blue-500'} href={href}>
+      <a className={baseClassName + ' text-primary'}>{text}</a>
+    </ActiveLink>
+  )
+}
+
+const ResponsiveMenuLink = ({ text, href }: MenuLinkProps) => {
+  const baseClassName =
+    'block text-2xl py-3 hover:text-blue-500 font-semibold transition duration-300  '
+  return (
+    <li>
+      <ActiveLink
+        activeClassName={baseClassName + ' text-blue-500'}
+        href={href}
+      >
+        <a className={baseClassName + ' text-primary'}>{text}</a>
+      </ActiveLink>
+    </li>
   )
 }
