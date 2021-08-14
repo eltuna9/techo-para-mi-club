@@ -22,7 +22,7 @@ export default function Menu() {
                     alt="Logo un techo para mi club"
                     width="218"
                     height="71"
-                    className="justify-self-center"
+                    className="justify-self-center max-w-md"
                   />
                 </span>
               </a>
@@ -32,25 +32,25 @@ export default function Menu() {
             <div className="hidden md:flex items-center space-x-1">
               <a
                 href=""
-                className="py-4 px-2 text-xl xl:text-2xl text-blue-500 font-semibold border-blue-500  "
+                className="py-4 px-2 text-lg xl:text-2xl text-blue-500 font-semibold border-blue-500  "
               >
-                Campana
+                Campaña
               </a>
               <a
                 href=""
-                className="py-4 px-2 text-xl xl:text-2xl text-blue-800 font-semibold hover:text-blue-500 transition duration-300"
+                className="py-4 px-2 text-lg xl:text-2xl text-blue-800 font-semibold hover:text-blue-500 transition duration-300"
               >
                 Novedades
               </a>
               <a
                 href=""
-                className="py-4 px-2 text-xl xl:text-2xl text-blue-800 font-semibold hover:text-blue-500 transition duration-300"
+                className="py-4 px-2 text-lg xl:text-2xl whitespace-nowrap text-blue-800 font-semibold hover:text-blue-500 transition duration-300"
               >
                 El club
               </a>
               <a
                 href=""
-                className="py-4 px-2 text-xl xl:text-2xl text-blue-800 font-semibold hover:text-blue-500 transition duration-300"
+                className="py-4 px-2 text-lg xl:text-2xl text-blue-800 font-semibold hover:text-blue-500 transition duration-300"
               >
                 Gracias
               </a>
@@ -86,15 +86,15 @@ export default function Menu() {
           <li className="active">
             <a
               href="index.html"
-              className="block text-3xl py-3 text-blue-800 hover:text-blue-500 font-semibold transition duration-300"
+              className="block text-2xl py-3 text-blue-800 hover:text-blue-500 font-semibold transition duration-300"
             >
-              Campana
+              Campaña
             </a>
           </li>
           <li>
             <a
               href="#novedades"
-              className="block text-3xl py-3 text-blue-800 hover:text-blue-500 font-semibold transition duration-300"
+              className="block text-2xl py-3 text-blue-800 hover:text-blue-500 font-semibold transition duration-300"
             >
               Novedades
             </a>
@@ -102,7 +102,7 @@ export default function Menu() {
           <li>
             <a
               href="#elClub"
-              className="block text-3xl py-3 text-blue-800 hover:text-blue-500 font-semibold transition duration-300"
+              className="block text-2xl py-3 text-blue-800 hover:text-blue-500 font-semibold transition duration-300"
             >
               El club
             </a>
@@ -110,7 +110,7 @@ export default function Menu() {
           <li>
             <a
               href="#gracias"
-              className="block text-3xl py-3 text-blue-800 hover:text-blue-500 font-semibold transition duration-300"
+              className="block text-2xl py-3 text-blue-800 hover:text-blue-500 font-semibold transition duration-300"
             >
               Gracias
             </a>
