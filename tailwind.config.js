@@ -11,6 +11,7 @@ module.exports = {
           DEFAULT: '#4BC5EF',
         },
         tertiary: {
+          light: '#f8c651',
           DEFAULT: '#F8BE37',
         },
       },
