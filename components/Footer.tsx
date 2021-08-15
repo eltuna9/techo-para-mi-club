@@ -23,6 +23,7 @@ export function Footer() {
               <a
                 href="https://www.instagram.com/general_paz_salta/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <IconWrapper>
                   <FaInstagram className="text-xl" />
@@ -32,6 +33,7 @@ export function Footer() {
               <a
                 href="https://www.facebook.com/Club-Deportivo-General-Paz-437368147029695"
                 target="_blank"
+                rel="noreferrer"
               >
                 <IconWrapper>
                   <FaFacebookF className="text-xl" />
