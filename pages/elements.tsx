@@ -15,7 +15,7 @@ export default function ComponentsShowcase() {
         <h2 className="text-center text-2xl">Responsive Menu</h2>
         <Menu />
       </div>
-      <h2 className="text-center text-2xl">Footer</h2>
+      <h2 className="text-center text-2xl pt-48">Footer</h2>
       <Footer />
     </>
   )
