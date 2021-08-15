@@ -1,6 +1,7 @@
 // This page is just to showcase the different componets we are creating, we'll delete it once we are ready to go to production.
 import * as React from 'react'
 import { DonationsCounter } from '../components/donationsCounter'
+import { Footer } from '../components/Footer'
 import Menu from '../components/Menu'
 
 export default function ComponentsShowcase() {
@@ -14,6 +15,8 @@ export default function ComponentsShowcase() {
         <h2 className="text-center text-2xl">Responsive Menu</h2>
         <Menu />
       </div>
+      <h2 className="text-center text-2xl pt-48">Footer</h2>
+      <Footer />
     </>
   )
 }
