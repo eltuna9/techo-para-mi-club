@@ -10,7 +10,7 @@ export function Footer() {
       <ScrollToTopButton />
       <div className="container flex justify-between flex-wrap mx-auto">
         <FooterSection>
-          <LogoCampaingWhite className="w-5/6 sm:w-4/6" />
+          <LogoCampaingWhite className="w-4/6 sm:w-4/6 pb-8" />
         </FooterSection>
         <FooterSection>
           <LogoClub className="w-3/6 md:w-2/6 pb-8" />
