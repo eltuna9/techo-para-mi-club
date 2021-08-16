@@ -1,13 +1,21 @@
 import React from 'react'
 import { ReactNode } from 'react'
 import { FaFacebookF, FaInstagram, FaCaretUp } from 'react-icons/fa'
+import { CaretSquareButton } from './CaretSquareButton'
 import { LogoCampaingWhite } from './svg/logoCampaignWhite'
 import { LogoClub } from './svg/logoClub'
 
 export function Footer() {
+  const handleCaretClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
   return (
     <div className="w-full bg-primary p-10 md:p-16 relative">
-      <ScrollToTopButton />
+      <CaretSquareButton
+        caretDirection="up"
+        onClick={handleCaretClick}
+        className="absolute -top-14 right-4"
+      />
       <div className="container flex justify-between flex-wrap mx-auto">
         <FooterSection>
           <LogoCampaingWhite className="w-4/6 sm:w-4/6 pb-8" />
@@ -61,20 +69,6 @@ function FooterSection(props: { children: ReactNode }) {
   return (
     <div className="w-full md:w-2/6 flex justify-center items-center">
       {children}
-    </div>
-  )
-}
-
-function ScrollToTopButton() {
-  const handleClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-  return (
-    <div
-      className="rounded-lg bg-tertiary text-white absolute -top-14 right-4 w-12 h-12 flex justify-center items-center cursor-pointer"
-      onClick={handleClick}
-    >
-      <FaCaretUp className="text-5xl" />
     </div>
   )
 }
