@@ -2,7 +2,10 @@
 import * as React from 'react'
 import { DonationsCounter } from '../components/donationsCounter'
 import { Footer } from '../components/Footer'
+import bannerHome from '../public/bannerHome.jpg'
+
 import Menu from '../components/Menu'
+import { ContainerWithBackground } from '../components/ContainerWithBackground'
 
 export default function ComponentsShowcase() {
   return (
@@ -17,6 +20,16 @@ export default function ComponentsShowcase() {
       </div>
       <h2 className="text-center text-2xl pt-48">Footer</h2>
       <Footer />
+
+      <h2 className="text-center text-2xl pt-48">Container with background</h2>
+      <ContainerWithBackground
+        backgroundImage={bannerHome}
+        className="w-full lg:w-7/12 h-3/6"
+      >
+        <h1 className="text-8xl text-white text-center p-48">
+          ANY CONTENT HERE!
+        </h1>
+      </ContainerWithBackground>
     </>
   )
 }

@@ -3,7 +3,8 @@ import Image from 'next/dist/client/image'
 import { IoCloseSharp, IoMenu } from 'react-icons/io5'
 import { ActiveLink } from './ActiveLink'
 
-export default function Menu() {
+export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
+  const { className } = props
   const [menuOpen, setMenuOpen] = useState(false)
 
   const handleToggle = () => {
@@ -11,7 +12,11 @@ export default function Menu() {
   }
 
   return (
-    <nav className="bg-white m-auto w-full lg:w-11/12 xl:w-10/12 md:rounded-full">
+    <nav
+      className={`bg-white m-auto w-full lg:w-10/12 md:rounded-full ${
+        className || ''
+      }`}
+    >
       <div className="px-6 md:mx-auto md:px-12">
         <div className="flex justify-between ">
           <div className="flex space-x-7">
@@ -31,10 +36,10 @@ export default function Menu() {
           </div>
           <div className="hidden md:flex items-center space-x-3 ">
             <div className="hidden md:flex items-center space-x-1">
-              <MenuLink text={'Campaña'} href={'/home'} />
-              <MenuLink text={'Novedades'} href={'/home'} />
-              <MenuLink text={'El club'} href={'/home'} />
-              <MenuLink text={'Gracias'} href={'/elements'} />
+              <MenuLink text={'Campaña'} href={'/campaign'} />
+              <MenuLink text={'Novedades'} href={'/news'} />
+              <MenuLink text={'El club'} href={'/club'} />
+              <MenuLink text={'Gracias'} href={'/thanks'} />
             </div>
             <a
               href=""
