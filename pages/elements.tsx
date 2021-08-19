@@ -1,6 +1,6 @@
 // This page is just to showcase the different componets we are creating, we'll delete it once we are ready to go to production.
 import * as React from 'react'
-import { DonationsCounter } from '../components/donationsCounter'
+import { DonationsCounter } from '../components/DonationsCounter'
 import { Footer } from '../components/Footer'
 import bannerHome from '../public/bannerHome.jpg'
 

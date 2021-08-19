@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app'
 import React, { Fragment, useEffect } from 'react'
 import { useRouter } from 'next/dist/client/router'
 import { pageview } from '../utils/analytics'
-import { AppHeader } from '../components/AppHeader'
+import { AppHeader } from '../components'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
