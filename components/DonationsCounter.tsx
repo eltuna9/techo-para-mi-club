@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { extractNumberFromString } from '../../utils/stringUtils'
+import { extractNumberFromString } from '../utils/stringUtils'
 
 interface DonationsCounterProps {
   className?: string
