@@ -14,7 +14,7 @@ export function Footer() {
       <CaretSquareButton
         caretDirection="up"
         onClick={handleCaretClick}
-        className="absolute -top-14 right-4"
+        className="absolute -top-14 right-10"
       />
       <div className="container flex justify-between flex-wrap mx-auto">
         <FooterSection>
