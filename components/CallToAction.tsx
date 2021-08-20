@@ -10,13 +10,17 @@ interface CallToActionProps {
 export function CallToAction(props: CallToActionProps) {
   const { backgroundColor, className } = props
   return (
-    <div className={`w-full pt-32 pb-32 ${className || ''} `}>
+    <div
+      className={`w-full pt-12 pb-12 md:pt-24 md:pb-24 lg:pt-32 lg:pb-32 ${
+        className || ''
+      } `}
+    >
       <div
-        className={`container flex flex-wrap rounded-4xl p-32 mx-auto bg-${backgroundColor}`}
+        className={`w-11/12 lg:container flex flex-wrap rounded-3xl xl:rounded-6xl lg:rounded-5xl p-12 lg:p-24 xl:p-28 mx-auto bg-${backgroundColor}`}
       >
         <div className="w-full md:w-4/6 flex justify-center items-center">
           <h3
-            className={`text-xl md:text-5xl font-bold text-${
+            className={`text-xl lg:text-3xl xl:text-5xl font-bold text-${
               backgroundColor === 'secondary' ? 'white' : 'secondary'
             }`}
           >
@@ -24,7 +28,7 @@ export function CallToAction(props: CallToActionProps) {
             difusión para que podamos lograrlo
           </h3>
         </div>
-        <div className="flex w-full md:w-2/6 justify-center items-center">
+        <div className="flex w-full md:w-2/6 justify-center items-center pt-8 md:pt-0">
           <HelpUsLink className="lg:text-4xl xl:text-4xl lg:px-12 xl:px-12" />
         </div>
       </div>
