@@ -4,21 +4,21 @@ export function LogoCampaingSquare(props: React.SVGProps<SVGSVGElement>) {
   return <svg id="Logo_Techo_2" data-name="Logo Techo 2" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="258.743" height="312.211" viewBox="0 0 258.743 312.211" {...props}>
   <defs>
     <radialGradient id="radial-gradient" cx="-3.436" cy="1.379" r="3.405" gradientTransform="translate(-0.848) scale(2.696 1)" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#f9e031"/>
-      <stop offset="0.554" stop-color="#f9b233"/>
-      <stop offset="0.989" stop-color="#f6921e"/>
+      <stop offset="0" stopColor="#f9e031"/>
+      <stop offset="0.554" stopColor="#f9b233"/>
+      <stop offset="0.989" stopColor="#f6921e"/>
     </radialGradient>
     <radialGradient id="radial-gradient-2" cx="1.822" cy="1.136" r="1.203" gradientTransform="translate(-1.206) scale(3.412 1)" xlinkHref="#radial-gradient"/>
     <radialGradient id="radial-gradient-3" cx="1.354" cy="1.47" r="4.216" gradientTransform="translate(-0.645) scale(2.291 1)" xlinkHref="#radial-gradient"/>
     <radialGradient id="radial-gradient-4" cx="0.33" cy="1.091" r="0.815" gradientTransform="translate(-0.143) scale(1.287 1)" xlinkHref="#radial-gradient"/>
     <radialGradient id="radial-gradient-5" cx="-2.36" cy="1.123" r="1.1" gradientTransform="translate(-1.433) scale(3.867 1)" xlinkHref="#radial-gradient"/>
     <linearGradient id="linear-gradient" x1="-0.028" y1="1.067" x2="0.732" y2="0.113" gradientUnits="objectBoundingBox">
-      <stop offset="0.027" stop-color="#0091de"/>
-      <stop offset="0.892" stop-color="#47c2ee"/>
+      <stop offset="0.027" stopColor="#0091de"/>
+      <stop offset="0.892" stopColor="#47c2ee"/>
     </linearGradient>
     <linearGradient id="linear-gradient-2" x1="-0.225" y1="-0.103" x2="1.339" y2="1.062" gradientUnits="objectBoundingBox">
-      <stop offset="0.027" stop-color="#0091de"/>
-      <stop offset="1" stop-color="#2e3191"/>
+      <stop offset="0.027" stopColor="#0091de"/>
+      <stop offset="1" stopColor="#2e3191"/>
     </linearGradient>
   </defs>
   <g id="Grupo_48" data-name="Grupo 48" transform="translate(0 227.115)" style={{mixBlendMode: 'multiply', isolation: 'isolate'}}>

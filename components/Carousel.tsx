@@ -53,7 +53,7 @@ export function Carousel(props: CarouselProps) {
     >
       <Slider className="h-3/6 w-full rounded-xl xl:rounded-3xl">
         {images.map((img, index) => (
-          <Slide index={index}>
+          <Slide key={index} index={index}>
             <Image
               src={img}
               className=""
@@ -99,7 +99,7 @@ function CarouselDots(props: { images: StaticImageData[] }) {
         const isEven = index % 2 === 0
         const isCurrentSlide = currentSlide === index
         return (
-          <Dot slide={index}>
+          <Dot key={index} slide={index}>
             <div
               className={`rounded-full ml-2 w-3 h-3 cursor-pointer bg-${
                 isEven
