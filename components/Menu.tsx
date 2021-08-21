@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Image from 'next/dist/client/image'
 import { IoCloseSharp, IoMenu } from 'react-icons/io5'
 import { ActiveLink } from './ActiveLink'
+import { HelpUsLink } from './HelpUsLink'
 
 export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
   const { className } = props
@@ -41,12 +42,7 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
               <MenuLink text={'El club'} href={'/club'} />
               <MenuLink text={'Gracias'} href={'/thanks'} />
             </div>
-            <a
-              href=""
-              className="py-2 px-4 xl:px-8 text-xl xl:text-2xl text-primary bg-tertiary font-semibold rounded hover:bg-tertiary-light transition duration-300"
-            >
-              Ayudanos
-            </a>
+            <HelpUsLink />
           </div>
           <div className="md:hidden flex items-center">
             <button
@@ -74,12 +70,7 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
           <ResponsiveMenuLink text={'El club'} href={'/home'} />
           <ResponsiveMenuLink text={'Gracias'} href={'/elements'} />
           <li className="my-10">
-            <a
-              href=""
-              className="py-2 px-8 text-2xl text-primary bg-tertiary font-semibold rounded hover:bg-tertiary-light transition duration-300"
-            >
-              Ayudanos
-            </a>
+            <HelpUsLink />
           </li>
         </ul>
       </div>
