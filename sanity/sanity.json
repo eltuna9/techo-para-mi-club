@@ -1,7 +1,8 @@
 {
   "root": true,
   "project": {
-    "name": "Techo"
+    "name": "Techo",
+    "basePath": "/sanity"
   },
   "api": {
     "projectId": "1khdoi5j",
@@ -16,9 +17,7 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [
