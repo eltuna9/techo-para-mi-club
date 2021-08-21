@@ -11,7 +11,7 @@ export function CallToAction(props: CallToActionProps) {
   const { backgroundColor, className } = props
   return (
     <div
-      className={`w-full pt-12 pb-12 md:pt-24 md:pb-24 lg:pt-32 lg:pb-32 ${
+      className={`w-full pt-12 pb-12 md:pt-24 md:pb-24 lg:pb-32 ${
         className || ''
       } `}
     >

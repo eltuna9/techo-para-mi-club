@@ -1,5 +1,5 @@
 import * as React from 'react'
-import bannerHome from '../../public/bannerHome.jpg'
+import mainImage from '../../public/mainImage.jpg'
 import { ContainerWithBackground } from '../ContainerWithBackground'
 import Menu from '../Menu'
 import { LogoClub } from '../svg/logoClub'
@@ -9,7 +9,7 @@ export function HomeLandingSection() {
     <div className="w-screen h-screen relative flex">
       <Menu className="absolute top-0 md:top-12 z-10 transform -translate-x-1/2 left-1/2" />
       <ContainerWithBackground
-        backgroundImage={bannerHome}
+        backgroundImage={mainImage}
         className="hidden lg:block w-full lg:w-7/12 h-full"
       />
 
