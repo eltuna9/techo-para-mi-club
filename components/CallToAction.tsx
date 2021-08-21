@@ -11,12 +11,12 @@ export function CallToAction(props: CallToActionProps) {
   const { backgroundColor, className } = props
   return (
     <div
-      className={`w-full pt-12 pb-12 md:pt-24 md:pb-24 lg:pt-32 lg:pb-32 ${
+      className={`w-full pt-12 pb-12 md:pt-24 md:pb-24 lg:pb-32 ${
         className || ''
       } `}
     >
       <div
-        className={`w-11/12 lg:container flex flex-wrap rounded-3xl xl:rounded-6xl lg:rounded-5xl p-12 lg:p-24 xl:p-28 mx-auto bg-${backgroundColor}`}
+        className={`w-11/12 xl:container flex flex-wrap rounded-3xl xl:rounded-6xl lg:rounded-5xl p-12 lg:p-24 xl:p-28 mx-auto bg-${backgroundColor}`}
       >
         <div className="w-full md:w-4/6 flex justify-center items-center">
           <h3
