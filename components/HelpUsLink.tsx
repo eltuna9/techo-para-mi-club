@@ -7,7 +7,7 @@ interface HelpUsLinkProps {
 export function HelpUsLink(props: HelpUsLinkProps) {
   const { className } = props
   return (
-    <Link href="/help-us">
+    <Link href="/help-us" passHref>
       <span
         className={`py-2 px-4 xl:px-8 text-xl xl:text-2xl text-primary bg-tertiary font-semibold rounded hover:bg-tertiary-light transition duration-300 cursor-pointer ${
           className || ''
