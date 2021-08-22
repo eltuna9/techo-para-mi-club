@@ -14,14 +14,14 @@ export function HelpUsLandingSection() {
     })
   }
   return (
-    <div className="w-screen h-screen relative flex">
+    <div className="w-full h-screen relative flex">
       <Menu className="absolute top-0 md:top-12 z-10 transform -translate-x-1/2 left-1/2" />
       <ContainerWithBackground
         backgroundImage={bannerHome}
         className="w-full h-full flex justify-center items-end"
       >
         <div className="pt-8 pb-4 bg-gradient-to-t from-black ">
-          <h1 className="text-white text-4xl text-center font-bold">
+          <h1 className="text-white text-4xl md:text-5xl lg:text-6xl lg:w-4/6 mx-auto text-center font-bold">
             TODO APORTE NOS ACERCA A CUMPLIR ESTE SUEÑO
           </h1>
           <CaretSquareButton
