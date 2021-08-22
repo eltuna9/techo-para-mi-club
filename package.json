@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "concurrently \"next\" \"cd sanity && sanity start\"",
     "build": "echo 'Building Sanity to public/studio…' && cd sanity && sanity build ../public/sanity -y && cd .. && next build",
-    "start": "next start",
+    "start": "vercel dev",
     "lint": "next lint",
     "postinstall": "lerna bootstrap"
   },
