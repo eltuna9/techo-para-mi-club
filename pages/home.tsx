@@ -16,7 +16,7 @@ export default function home() {
         amount="115.000"
         className="transform lg:-translate-y-1/2 lg:top-1/2 lg:w-full"
       />
-      <CallToAction backgroundColor="secondary" />
+      <CallToAction backgroundColor="white" />
       <Footer />
     </>
   )
