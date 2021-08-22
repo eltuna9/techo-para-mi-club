@@ -22,7 +22,7 @@ export function AppHeader() {
         property="og:description"
         content="Ayudemos a este club de barrio a cumplir su sueño. Juntos podemos lograrlo!"
       />
-      <meta property="og:image" content="/techo-og.ong" />
+      <meta property="og:image" content="/techo-og.png" />
       <link rel="icon" href="/favicons/favicon.png" />
       <title>Un techo para mi club - Colecta solidaria</title>
     </Head>
