@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"next\" \"cd sanity && sanity start\"",
-    "build": "next build",
+    "build": "echo 'Building Sanity to public/studio…' && cd sanity && sanity build ../public/sanity -y && cd .. && next build",
     "start": "next start",
     "lint": "next lint",
     "sanity": "cd sanity && sanity start"
