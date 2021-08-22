@@ -16,12 +16,14 @@ export function CallToAction(props: CallToActionProps) {
       } `}
     >
       <div
-        className={`w-11/12 xl:container flex flex-wrap rounded-3xl xl:rounded-6xl lg:rounded-5xl p-12 lg:p-24 xl:p-28 mx-auto bg-${backgroundColor}`}
+        className={`w-11/12 lg:container flex flex-wrap rounded-3xl xl:rounded-6xl lg:rounded-5xl p-12 lg:p-24 xl:p-28 mx-auto bg-${
+          backgroundColor === 'white' ? 'bg-white' : 'bg-secondary'
+        }`}
       >
         <div className="w-full md:w-4/6 flex justify-center items-center">
           <h3
-            className={`text-xl lg:text-3xl xl:text-5xl font-bold text-${
-              backgroundColor === 'secondary' ? 'white' : 'secondary'
+            className={`text-xl text-center md:text-left lg:text-3xl xl:text-5xl font-bold ${
+              backgroundColor === 'secondary' ? 'text-white' : 'text-secondary'
             }`}
           >
             Gracias por haber llegado hasta acá, ayudanos con tu donación o con
