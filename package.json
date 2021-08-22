@@ -7,7 +7,7 @@
     "build": "echo 'Building Sanity to public/studio…' && cd sanity && sanity build ../public/sanity -y && cd .. && next build",
     "start": "next start",
     "lint": "next lint",
-    "sanity": "cd sanity && sanity start"
+    "postinstall": "lerna bootstrap"
   },
   "dependencies": {
     "concurrently": "^6.2.1",
@@ -24,6 +24,8 @@
     "autoprefixer": "^10.2.6",
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
+    "lerna": "^4.0.0",
+    "lerna-cli": "^4.1.0",
     "postcss": "^8.3.5",
     "tailwindcss": "^2.2.4",
     "typescript": "4.3.5"

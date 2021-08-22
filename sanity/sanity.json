@@ -25,5 +25,8 @@
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
     }
-  ]
+  ],
+  "server": {
+    "port": 3000
+  }
 }
