@@ -4,18 +4,21 @@ import { ReactNode } from 'react'
 
 interface ContainerWithBackgroundProps {
   className?: string
+  imgClassName?: string
   children?: ReactNode
   backgroundImage: StaticImageData
 }
 
 export function ContainerWithBackground(props: ContainerWithBackgroundProps) {
-  const { className, children, backgroundImage } = props
+  const { className, children, backgroundImage, imgClassName } = props
   return (
     <div className={`relative z-0 ${className || ''}`}>
       <Image
         src={backgroundImage}
         layout="fill"
-        className="object-center object-cover pointer-events-none"
+        className={`object-center object-cover pointer-events-none ${
+          imgClassName || ''
+        }`}
         alt=""
       />
       {children && <div className="relative z-1">{children}</div>}
