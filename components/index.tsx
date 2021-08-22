@@ -1,5 +1,6 @@
 export * from './ActiveLink'
 export * from './CallToAction'
+export * from './AppHeader'
 export * from './CaretSquareButton'
 export * from './ContainerWithBackground'
 export * from './DonationsCounter'
