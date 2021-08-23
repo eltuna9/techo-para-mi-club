@@ -1167,6 +1167,11 @@
     get-random-values "^1.2.2"
     lodash "^4.17.15"
 
+"@sanity/cli@^2.15.0":
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-2.15.0.tgz#cc41b583a3a4dd458d969510362ded4bcf6fdd99"
+  integrity sha512-q6Nc6K4eJ6qLbMwIRtqMWs38RH0kRsMLJo/Yz4IPoku5a28T+VtHxSG6KqGQeLIgeBV0VSoWHfe2MtavfTMqBw==
+
 "@sanity/client@2.15.0":
   version "2.15.0"
   resolved "https://registry.npmjs.org/@sanity/client/-/client-2.15.0.tgz#2b78c193455b1940f0846ca2d57712be39960bc2"
@@ -1192,7 +1197,7 @@
 
 "@sanity/core@^2.15.0":
   version "2.15.0"
-  resolved "https://registry.npmjs.org/@sanity/core/-/core-2.15.0.tgz#7fe7efcc034bfa5c195e9be10214cf1adb7239f5"
+  resolved "https://registry.yarnpkg.com/@sanity/core/-/core-2.15.0.tgz#7fe7efcc034bfa5c195e9be10214cf1adb7239f5"
   integrity sha512-r2qb6Zbmg/CnzfS6mhOi0E845ivoa1VFp2iMCxGfRqyNILpMfkJYyiSAnFcc8xF8thXWr+j6o9t5m//6r+SoEg==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.10.4"

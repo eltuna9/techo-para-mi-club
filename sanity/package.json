@@ -8,7 +8,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
-    "test": "sanity check"
+    "test": "sanity check",
+    "build": "sanity build public -y"
   },
   "keywords": [
     "sanity"
@@ -25,7 +26,9 @@
     "react": "^17.0",
     "react-dom": "^17.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@sanity/cli": "^2.15.0"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:eltuna9/techo-para-mi-club.git"
