@@ -23,7 +23,7 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
       <div className="px-6 md:mx-auto md:px-12">
         <div className="flex justify-between ">
           <div className="flex space-x-7">
-            <div className="flex items-center cursor-pointer py-2">
+            <div className="flex items-center cursor-pointer py-3">
               <Link href="/">
                 <LogoCampaingBlue className="h-10" />
               </Link>
