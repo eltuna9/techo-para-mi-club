@@ -3,6 +3,8 @@ import Image from 'next/dist/client/image'
 import { IoCloseSharp, IoMenu } from 'react-icons/io5'
 import { ActiveLink } from './ActiveLink'
 import { HelpUsLink } from './HelpUsLink'
+import { LogoCampaingBlue } from './svg'
+import Link from 'next/link'
 
 export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
   const { className } = props
@@ -21,28 +23,20 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
       <div className="px-6 md:mx-auto md:px-12">
         <div className="flex justify-between ">
           <div className="flex space-x-7">
-            <div>
-              <a href="#" className="flex  items-center px-2">
-                <span className="flex font-semibold text-blue-800 text-lg">
-                  <Image
-                    src="/logoCapaniaWide.png"
-                    alt="Logo un techo para mi club"
-                    width="218"
-                    height="71"
-                    className="justify-self-center max-w-md"
-                  />
-                </span>
-              </a>
+            <div className="flex items-center cursor-pointer">
+              <Link href="/">
+                <LogoCampaingBlue className="h-10" />
+              </Link>
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-3 ">
             <div className="hidden md:flex items-center space-x-1">
-              <MenuLink text={'Campaña'} href={'/campaign'} />
-              <MenuLink text={'Novedades'} href={'/news'} />
+              <MenuLink text={'Inicio'} href={'/'} />
+              {/* <MenuLink text={'Novedades'} href={'/news'} />
               <MenuLink text={'El club'} href={'/club'} />
-              <MenuLink text={'Gracias'} href={'/thanks'} />
+              <MenuLink text={'Gracias'} href={'/thanks'} /> */}
             </div>
-            <HelpUsLink />
+            <HelpUsLink className="py-1" />
           </div>
           <div className="md:hidden flex items-center">
             <button
@@ -65,10 +59,10 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
         }
       >
         <ul className="px-6">
-          <ResponsiveMenuLink text={'Campaña'} href={'/home'} />
-          <ResponsiveMenuLink text={'Novedades'} href={'/home'} />
+          <ResponsiveMenuLink text={'Inicio'} href={'/'} />
+          {/* <ResponsiveMenuLink text={'Novedades'} href={'/home'} />
           <ResponsiveMenuLink text={'El club'} href={'/home'} />
-          <ResponsiveMenuLink text={'Gracias'} href={'/elements'} />
+          <ResponsiveMenuLink text={'Gracias'} href={'/elements'} /> */}
           <li className="my-10">
             <HelpUsLink />
           </li>
