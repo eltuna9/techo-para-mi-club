@@ -37,3 +37,4 @@ yarn-error.log*
 .vscode
 
 # sanity
+public/studio
