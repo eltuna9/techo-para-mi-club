@@ -17,9 +17,9 @@ export function DonationsCounter(props: DonationsCounterProps) {
   return (
     <div className={`relative w-screen ${className || ''}`}>
       <Stripes />
-      <div className="w-full lg:w-10/12 mx-auto relative z-50">
+      <div className="w-full lg:w-10/12 xl:container mx-auto relative z-50">
         <div
-          className={`w-full xl:w-auto xl:container mx-auto p-4 md:p-10 lg:border-8 lg:rounded-3xl flex justify-center items-center border-t-8 border-b-8 border-white bg-primary text-white shadow-lg`}
+          className={`w-full mx-auto p-4 md:p-10 lg:border-8 lg:rounded-3xl flex justify-center items-center border-t-8 border-b-8 border-white bg-primary text-white shadow-lg`}
         >
           <div className="flex justify-between w-full flex-wrap">
             <div className="flex flex-col w-full lg:w-8/12 text-center">
