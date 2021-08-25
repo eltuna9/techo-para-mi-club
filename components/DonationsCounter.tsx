@@ -20,7 +20,7 @@ export function DonationsCounter(props: DonationsCounterProps) {
       <Stripes />
       <div className="w-full lg:w-10/12 xl:container mx-auto relative z-50">
         <div
-          className={`w-full mx-auto p-4 md:p-10 lg:border-8 lg:rounded-3xl flex justify-center items-center border-t-8 border-b-8 border-white bg-primary text-white shadow-lg`}
+          className={`w-full mx-auto p-4 md:px-10 md:py-6 lg:border-8 lg:rounded-3xl flex justify-center items-center border-t-8 border-b-8 border-white bg-primary text-white shadow-lg`}
         >
           <div className="flex justify-between items-center w-full flex-wrap">
             <div
