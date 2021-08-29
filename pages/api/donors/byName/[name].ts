@@ -1,6 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { useRouter } from 'next/router'
 import { findDonorsByName } from '../../../../database/donorsData'
 
 export default async function handler(
