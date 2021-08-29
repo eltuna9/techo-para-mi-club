@@ -3,48 +3,52 @@ import { Donor } from '../models'
 import { faunaClient } from './client'
 import { FaunaIndexes, FaunaQueryResult, FaunaRef } from './faunaTypes'
 const q = faunadb.query
-const { Get, Ref, Collection } = faunadb.query
 
-export async function findDonorsByName(name: string): Promise<Donor | null> {
+/** Implemeting search by name, based on the first approach discussed here: https://stackoverflow.com/questions/62109035/how-to-get-documents-that-contain-sub-string-in-faunadb/62131536#62131536 */
+export async function findDonorsByName(name: string): Promise<Donor[]> {
+  interface FindDonorsByNameQueryResult {
+    data: [string, FaunaRef][]
+  }
   try {
-    // Getting al refs that match the index businessCode with the value `code`, which should be only one as the index has the UNIQUE constraint
-    const refs = await faunaClient.query<FaunaQueryResult<FaunaRef>>(
-      q.Paginate(q.Match(q.Index(FaunaIndexes.DonorsName), name))
+    const queryResult = await faunaClient.query<FindDonorsByNameQueryResult>(
+      q.Filter(
+        q.Paginate(q.Match(q.Index(FaunaIndexes.DonorsName))),
+        q.Lambda(
+          ['fullName', 'ref'],
+          q.ContainsStr(q.LowerCase(q.Var('fullName')), name.toLowerCase())
+        )
+      )
     )
 
-    const results: FaunaRef[] = refs.data as FaunaRef[]
+    const donorRefs = queryResult.data.map((rawResult) => {
+      return q.Get(rawResult[1])
+    })
 
-    if (!results.length) return null
-
-    // get the only ref that should have been returned as a result
-    const resultRef = results[0]
-
-    const response = await faunaClient.query<FaunaQueryResult<Donor>>(
-      Get(Ref(Collection('Businesses'), resultRef.id))
+    const donorsData = await faunaClient.query<FaunaQueryResult<Donor>[]>(
+      donorRefs
     )
-    return response.data as Donor
+    return donorsData.map((record) => record.data)
   } catch (error) {
     console.log(error)
     throw error
   }
 }
 
+/** Just that, get all donors */
 export async function getAllDonors() {
-  return faunaClient
-    .query(q.Paginate(q.Match(q.Ref('donor index goes here'))))
-    .then((response) => {
-      const donorsRef = response.data
+  // First get the raw result of the query
+  const donorsQueryResult = await faunaClient.query<
+    FaunaQueryResult<FaunaRef[]>
+  >(q.Paginate(q.Match(q.Ref(`indexes/${FaunaIndexes.DonorsAll}`))))
 
-      // create new query out of todo refs. http://bit.ly/2LG3MLg
-      const getAllDonorsDataQuery = donorsRef.map((ref) => {
-        return q.Get(ref)
-      })
-      // then query the refs
-      return client.query(getAllDonorsDataQuery).then((ret) => {
-        return callback(null, {
-          statusCode: 200,
-          body: JSON.stringify(ret),
-        })
-      })
-    })
+  // Extract the refs (ids) for all the documents
+  const donorRefs = donorsQueryResult.data.map((ref) => {
+    return q.Get(ref)
+  })
+
+  // Query based on the refs to get the actual data
+  const donorsData = await faunaClient.query<FaunaQueryResult<Donor>[]>(
+    donorRefs
+  )
+  return donorsData.map((record) => record.data)
 }

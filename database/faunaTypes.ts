@@ -1,7 +1,7 @@
 export interface FaunaQueryResult<T> {
   ref: FaunaQueryResultRef
   ts: number
-  data: T | T[]
+  data: T
 }
 
 export interface FaunaQueryResultRef {
@@ -25,5 +25,6 @@ export enum FaunaCollections {
 }
 
 export enum FaunaIndexes {
-  DonorsName = 'name',
+  DonorsName = 'donors_name_word',
+  DonorsAll = 'all_donors',
 }
