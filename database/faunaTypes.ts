@@ -1,14 +1,12 @@
 export interface FaunaQueryResult<T> {
-  ref: FaunaQueryResultRef
+  ['@ref']?: FaunaRef
+  ref: FaunaRef
   ts: number
   data: T
 }
 
 export interface FaunaQueryResultRef {
-  ['@ref']: {
-    id: string
-    collection: FaunaQueryResultRef | undefined
-  }
+  ['@ref']: FaunaRef
 }
 
 export interface FaunaRef {
