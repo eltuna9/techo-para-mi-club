@@ -32,8 +32,8 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
           <div className="hidden md:flex items-center space-x-3 ">
             <div className="hidden md:flex items-center space-x-1">
               <MenuLink text={'Inicio'} href={'/'} />
-              {/* <MenuLink text={'Novedades'} href={'/news'} />
-              <MenuLink text={'El club'} href={'/club'} />
+              <MenuLink text={'Novedades'} href={'/noticias'} />
+              {/* <MenuLink text={'El club'} href={'/club'} />
               <MenuLink text={'Gracias'} href={'/thanks'} /> */}
             </div>
             <HelpUsLink className="py-1" />
