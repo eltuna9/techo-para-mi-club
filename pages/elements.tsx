@@ -6,6 +6,7 @@ import bannerHome from '../public/bannerHome.jpg'
 
 import Menu from '../components/Menu'
 import { ContainerWithBackground } from '../components/ContainerWithBackground'
+import { PostCardBig } from '../components/newsSections/PostCard'
 
 export default function ComponentsShowcase() {
   return (
@@ -17,6 +18,9 @@ export default function ComponentsShowcase() {
       <div className=" w-full mx-auto py-6 bg-blue-400">
         <h2 className="text-center text-2xl">Responsive Menu</h2>
         <Menu />
+      </div>
+      <div className=" w-full mx-auto my-10 ">
+        <PostCardBig />
       </div>
       <h2 className="text-center text-2xl pt-48">Footer</h2>
       <Footer />
