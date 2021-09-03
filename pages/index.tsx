@@ -13,10 +13,7 @@ export default function Home() {
     <>
       <HomeLandingSection />
       <HomeCarouselSection />
-      <DonationsCounter
-        amount="106.320"
-        className="transform lg:-translate-y-1/2 lg:top-1/2 lg:w-full"
-      />
+      <DonationsCounter className="transform lg:-translate-y-1/2 lg:top-1/2 lg:w-full" />
       <HomeJumbotormCardSection />
       <CallToAction backgroundColor="secondary" />
       <Footer />
