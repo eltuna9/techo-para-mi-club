@@ -1,7 +1,7 @@
 export interface Donor {
   id: string
   fullName: string
-  amoundtDonated: number
+  amountDonated: number
   donationDate: string
   donatedFrom: string
 }
