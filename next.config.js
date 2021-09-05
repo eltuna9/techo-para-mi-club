@@ -14,7 +14,15 @@ const STATIC_REWRITE = {
       : '/studio/static/:path*',
 }
 
+const DESK_REWRITE = {
+  source: '/sanity/desk/:path*',
+  destination:
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:3000/sanity/desk/:path*'
+      : '/studio/desk/:path*',
+}
+
 module.exports = {
   reactStrictMode: true,
-  rewrites: () => [STATIC_REWRITE, STUDIO_REWRITE],
+  rewrites: () => [STATIC_REWRITE, DESK_REWRITE, STUDIO_REWRITE],
 }
