@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"next\" \"cd sanity && sanity start\"",
-    "build": "echo 'Building Sanity' && cd sanity && npm install && sanity build ../public/studio -y && cd .. && next build",
+    "prebuild": "echo 'Building Sanity to public/studio' && cd sanity && npm i && npx @sanity/cli build ../public/studio -y && echo 'Done'",
+    "build": "next build",
+    "sanity": "cd sanity && sanity start",
     "start": "vercel dev",
     "lint": "next lint",
     "postinstall": "lerna bootstrap"
