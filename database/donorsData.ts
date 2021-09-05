@@ -35,7 +35,6 @@ export async function getAllDonors(
     })
   )
 
-  console.log(donorsQueryResult)
   // Extract the refs (ids) for all the documents
   const donorRefs = donorsQueryResult.data.map((ref) => {
     return q.Get(ref)
