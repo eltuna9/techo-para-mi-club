@@ -3,10 +3,11 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { getAllDonors } from '../../../database/donorsData'
 
 export default async function handler(
-  _req: NextApiRequest,
+  req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
-  const donors = await getAllDonors()
+  const nextRecordId = req.query['nextRecordId'] as string
+  const donors = await getAllDonors(nextRecordId)
 
   res.status(200).json(donors)
 }

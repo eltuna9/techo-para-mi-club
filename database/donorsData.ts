@@ -1,5 +1,8 @@
+// All these functions have been built based on (aka copy/pasted) the FaunaDB examples :
+// https://github.com/netlify/netlify-faunadb-example
+
 import faunadb from 'faunadb'
-import { Donor } from '../models'
+import { Donor, PaginatedResults } from '../models'
 import { faunaClient } from './client'
 import {
   FaunaCollections,
@@ -9,20 +12,30 @@ import {
 } from './faunaTypes'
 const q = faunadb.query
 
-// All these functions have been built based on (aka copy/pasted) the FaunaDB examples :
-// https://github.com/netlify/netlify-faunadb-example
-
 /**
  *  Gets all donors saved in the FaunDB collection
  *
  * See -> https://github.com/netlify/netlify-faunadb-example/blob/master/functions/todos-read-all.js
+ *
+ * Just added a reference to the next object to keep getting the next page,
+ * see -> https://docs.fauna.com/fauna/current/api/fql/functions/paginate?lang=shell#examples
  */
-export async function getAllDonors(): Promise<Donor[]> {
+export async function getAllDonors(
+  nextRecordId?: string
+): Promise<PaginatedResults<Donor>> {
   // First get the raw result of the query
   const donorsQueryResult = await faunaClient.query<
     FaunaQueryResult<FaunaRef[]>
-  >(q.Paginate(q.Match(q.Ref(`indexes/${FaunaIndexes.DonorsAll}`))))
+  >(
+    q.Paginate(q.Match(q.Ref(`indexes/${FaunaIndexes.DonorsAll}`)), {
+      size: 30,
+      after: nextRecordId
+        ? [q.Ref(q.Collection(FaunaCollections.Donors), nextRecordId)]
+        : undefined,
+    })
+  )
 
+  console.log(donorsQueryResult)
   // Extract the refs (ids) for all the documents
   const donorRefs = donorsQueryResult.data.map((ref) => {
     return q.Get(ref)
@@ -33,10 +46,17 @@ export async function getAllDonors(): Promise<Donor[]> {
     donorRefs
   )
 
-  return donorsData.map((record) => ({
+  const donorsResponse = donorsData.map((record) => ({
     ...record.data,
     id: record.ref.id,
   }))
+
+  return {
+    nextRecordId: donorsQueryResult.after
+      ? donorsQueryResult.after[0].id
+      : undefined,
+    data: donorsResponse,
+  }
 }
 
 /** Inserts a new Donor document in FaunaDB

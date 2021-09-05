@@ -2,18 +2,36 @@ import * as React from 'react'
 import { useEffect } from 'react'
 import { FaHeart } from 'react-icons/fa'
 import { fetchAllDonors } from '../../apiClients'
-import { Donor } from '../../models'
+import { Donor, PaginatedResults } from '../../models'
 
 export function ThanksDonorsSection() {
-  const [donors, setDonors] = React.useState<Donor[]>([])
+  const [donorsPage, setDonorsPageData] = React.useState<
+    PaginatedResults<Donor>
+  >({
+    data: [],
+  })
+
+  const [isLoadingDonors, setIsLoadingDonors] = React.useState(true)
+
+  const fetchDonors = async (nextRecordId?: string) => {
+    setIsLoadingDonors(true)
+    const allDonors = await fetchAllDonors(nextRecordId)
+    setDonorsPageData({
+      nextRecordId: allDonors.nextRecordId,
+      data: [...donorsPage.data, ...allDonors.data],
+    })
+    setIsLoadingDonors(false)
+  }
 
   useEffect(() => {
-    const fetchDonors = async () => {
-      const allDonors = await fetchAllDonors()
-      setDonors(allDonors)
-    }
     fetchDonors()
   }, [])
+
+  const seeMoreClickHandler = () => {
+    fetchDonors(donorsPage.nextRecordId)
+  }
+
+  const hasDonors = donorsPage.data.length > 0
 
   return (
     <div className="w-full flex flex-wrap bg-white py-24">
@@ -21,11 +39,30 @@ export function ThanksDonorsSection() {
         Cada aporte suma un montón{' '}
         <FaHeart className="text-secondary inline-block" />
       </h1>
+
+      {isLoadingDonors && (
+        <h2 className="text-secondary p-16 text-center w-full text-3xl">
+          Cargando...
+        </h2>
+      )}
+
       <div className="w-full p-4 md:p-16 flex flex-wrap justify-center">
-        {donors.map((donor) => (
+        {donorsPage.data.map((donor) => (
           <DonorCard key={donor.id} {...donor} />
         ))}
       </div>
+
+      {hasDonors && !!donorsPage.nextRecordId && (
+        <div className="w-full flex justify-center">
+          <button
+            className="px-6 py-3 bg-secondary text-white rounded-2xl"
+            onClick={seeMoreClickHandler}
+            disabled={isLoadingDonors}
+          >
+            {isLoadingDonors ? 'Cargando...' : 'Ver mas'}
+          </button>
+        </div>
+      )}
     </div>
   )
 }
@@ -33,10 +70,10 @@ export function ThanksDonorsSection() {
 function DonorCard(props: Donor) {
   const { fullName, amountDonated } = props
   return (
-    <div className="bg-gray-200 relative rounded-2xl md:mr-8 px-8 py-6 mb-6 text-primary w-full md:w-auto text-xl">
-      <div className="bg-secondary absolute w-4 h-full left-0 top-0 rounded-l-2xl" />
-      <span className="text-secondary font-extrabold">{fullName},</span> gracias
-      por tu ayuda de ${amountDonated}
+    <div className="bg-gray-200 relative rounded-2xl md:mr-8 px-6 py-3 md:px-8 md:py-6 mb-6 text-primary w-full xl:w-auto text-md md:text-xl">
+      <div className="bg-secondary absolute w-3 md:w-4 h-full left-0 top-0 rounded-l-2xl" />
+      <span className="text-secondary font-extrabold">{fullName.trim()},</span>{' '}
+      gracias por tu ayuda de ${amountDonated}
     </div>
   )
 }
