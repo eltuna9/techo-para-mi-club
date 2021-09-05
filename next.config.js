@@ -3,7 +3,7 @@ const STUDIO_REWRITE = {
   destination:
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000/sanity/:path*'
-      : '/sanity/index.html',
+      : '/studio/index.html',
 }
 
 module.exports = {
