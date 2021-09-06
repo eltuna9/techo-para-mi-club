@@ -3,6 +3,7 @@ export interface FaunaQueryResult<T> {
   ref: FaunaRef
   ts: number
   data: T
+  after: FaunaRef[]
 }
 
 export interface FaunaQueryResultRef {
@@ -12,10 +13,7 @@ export interface FaunaQueryResultRef {
 export interface FaunaRef {
   id: string
   collection: FaunaQueryResultRef | undefined
-}
-
-export interface FaunaResultsPage<T> {
-  value: T[]
+  ['@ref']: FaunaRef
 }
 
 export enum FaunaCollections {

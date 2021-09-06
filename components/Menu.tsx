@@ -31,10 +31,10 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
           </div>
           <div className="hidden md:flex items-center space-x-3 ">
             <div className="hidden md:flex items-center space-x-1">
-              <MenuLink text={'Inicio'} href={'/'} />
+              <MenuLink text="Inicio" href="/" />
               {/* <MenuLink text={'Novedades'} href={'/news'} />
-              <MenuLink text={'El club'} href={'/club'} />
-              <MenuLink text={'Gracias'} href={'/thanks'} /> */}
+              <MenuLink text={'El club'} href={'/club'} /> */}
+              <MenuLink text="Gracias" href="/gracias" />
             </div>
             <HelpUsLink className="py-1" />
           </div>
@@ -59,10 +59,10 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
         }
       >
         <ul className="px-6">
-          <ResponsiveMenuLink text={'Inicio'} href={'/'} />
+          <ResponsiveMenuLink text="Inicio" href="/" />
           {/* <ResponsiveMenuLink text={'Novedades'} href={'/home'} />
-          <ResponsiveMenuLink text={'El club'} href={'/home'} />
-          <ResponsiveMenuLink text={'Gracias'} href={'/elements'} /> */}
+          <ResponsiveMenuLink text={'El club'} href={'/home'} />*/}
+          <ResponsiveMenuLink text="Gracias" href="/gracias" />
           <li className="my-10">
             <HelpUsLink />
           </li>

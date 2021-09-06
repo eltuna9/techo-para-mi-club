@@ -12,7 +12,7 @@ export default function ComponentsShowcase() {
     <>
       <div className="container mx-auto my-6">
         <h2 className="text-center text-2xl">Donations Counter</h2>
-        <DonationsCounter amount="10.080.047" />
+        <DonationsCounter />
       </div>
       <div className=" w-full mx-auto py-6 bg-blue-400">
         <h2 className="text-center text-2xl">Responsive Menu</h2>
