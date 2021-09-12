@@ -8,6 +8,11 @@ import Menu from '../components/Menu'
 import { ContainerWithBackground } from '../components/ContainerWithBackground'
 import { PostCardBig } from '../components/newsSections/PostCard'
 
+const postTitle = 'Locreada para recaudar fondos'
+const postDate = '12 de Mayo'
+const postSummary =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco'
+
 export default function ComponentsShowcase() {
   return (
     <>
@@ -20,7 +25,12 @@ export default function ComponentsShowcase() {
         <Menu />
       </div>
       <div className=" w-full mx-auto my-10 ">
-        <PostCardBig />
+        <PostCardBig
+          title={postTitle}
+          summary={postSummary}
+          date={postDate}
+          // image={postImage}
+        />
       </div>
       <h2 className="text-center text-2xl pt-48">Footer</h2>
       <Footer />
