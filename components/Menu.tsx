@@ -32,7 +32,8 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
           <div className="hidden md:flex items-center space-x-3 ">
             <div className="hidden md:flex items-center space-x-1">
               <MenuLink text="Inicio" href="/" />
-              {/* <MenuLink text={'Novedades'} href={'/news'} />
+              <MenuLink text="Novedades" href="/noticias" />
+              {/* 
               <MenuLink text={'El club'} href={'/club'} /> */}
               <MenuLink text="Gracias" href="/gracias" />
             </div>
@@ -60,8 +61,8 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
       >
         <ul className="px-6">
           <ResponsiveMenuLink text="Inicio" href="/" />
-          {/* <ResponsiveMenuLink text={'Novedades'} href={'/home'} />
-          <ResponsiveMenuLink text={'El club'} href={'/home'} />*/}
+          <ResponsiveMenuLink text="Novedades" href="/noticias" />
+          {/* <ResponsiveMenuLink text={'El club'} href={'/home'} />*/}
           <ResponsiveMenuLink text="Gracias" href="/gracias" />
           <li className="my-10">
             <HelpUsLink />
