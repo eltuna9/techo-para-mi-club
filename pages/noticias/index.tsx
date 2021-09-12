@@ -1,11 +1,14 @@
 import { useRouter } from 'next/router'
 
 import { groq } from 'next-sanity'
-import { getClient, usePreviewSubscription } from '../lib'
-import { Post } from '../models'
+import { getClient, usePreviewSubscription } from '../../lib'
+import { Post } from '../../models'
 import React from 'react'
-import { NewsLandingSection, NewsPostSection } from '../components/newsSections'
-import { CallToAction, Footer } from '../components'
+import {
+  NewsLandingSection,
+  NewsPostSection,
+} from '../../components/newsSections'
+import { CallToAction, Footer } from '../../components'
 
 /** This props are going to get injected when next.js calls `getStaticProps` */
 interface NewsPageProps {

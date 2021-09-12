@@ -6,6 +6,7 @@ export interface Post {
   excerpt: string
   mainImage: any
   publishedAt: Date
+  author: Author
   body: any
   slug: { current: string }
 }

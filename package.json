@@ -12,6 +12,7 @@
     "postinstall": "lerna bootstrap"
   },
   "dependencies": {
+    "@sanity/block-content-to-react": "^3.0.0",
     "concurrently": "^6.2.1",
     "faunadb": "^4.3.0",
     "get-youtube-id": "^1.0.1",

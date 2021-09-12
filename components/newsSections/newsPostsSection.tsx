@@ -2,6 +2,8 @@ import * as React from 'react'
 import Link, { LinkProps } from 'next/link'
 import { Post } from '../../models'
 import { urlFor } from '../../lib'
+import { ContainerWithBackground } from '..'
+import { formatDateToString } from '../../utils/stringUtils'
 
 interface PostSectionProps {
   posts: Post[]
@@ -21,26 +23,21 @@ export function NewsPostSection(props: PostSectionProps) {
         <div className="flex justify-around flex-wrap pt-12">
           {posts &&
             posts.map((post: Post) => {
-              const postDate = new Date(post.publishedAt)
-              const formattedDate = `${
-                postDate.getDay() + 1
-              }/${postDate.getMonth()}/${postDate.getFullYear()}`
               return (
-                <Link href={`/${post.slug.current}`}>
+                <Link
+                  href={`noticias/${post.slug.current}`}
+                  key={post.slug.current}
+                >
                   <article className="bg-white text-primary w-full lg:w-5/12 rounded-xl mb-12 cursor-pointer">
-                    <div
-                      style={{
-                        backgroundImage: `url(${urlFor(post.mainImage)
-                          .width(600)
-                          .url()})`,
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
-                      }}
+                    <ContainerWithBackground
+                      backgroundImageSrc={
+                        urlFor(post.mainImage).width(600).url() ?? undefined
+                      }
                       className="w-full rounded-t-xl h-72"
                     />
                     <div className="p-6">
                       <h3 className="text-tertiary font-bold">
-                        {formattedDate}
+                        {formatDateToString(new Date(post.publishedAt))}
                       </h3>
                       <h3 className="text-lg font-bold text-2xl">
                         {post.title}
