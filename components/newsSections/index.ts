@@ -1,2 +1,3 @@
-export * from './newsLandingSection'
-export * from './newsPostsSection'
+export * from './NewsLandingSection'
+export * from './NewsPostSection'
+export * from './PostContent'

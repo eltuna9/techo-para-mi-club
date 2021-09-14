@@ -12,7 +12,7 @@ interface PostSectionProps {
 export function NewsPostSection(props: PostSectionProps) {
   const { posts } = props
   return (
-    <div className="w-full md:-mt-36 relative">
+    <div className="w-full md:-mt-20 relative">
       <div className="bg-primary xl:container md:w-11/12 md:rounded-5xl mx-auto xl:-mt-60 md:p-16 p-8">
         <h3 className="text-tertiary text-md text-center font-bold mt-24 md:mt-0">
           UN TECHO PARA MI CLUB
