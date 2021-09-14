@@ -39,3 +39,49 @@ a {
     }
   }
 }
+
+/* Adding styles for sanity content, ideally we should use serializers, 
+but this would do for now until we get time to improve it */
+/* Sanity post css starts */
+.post-content p:empty {
+  @apply py-4;
+}
+
+.post-content {
+  @apply text-primary;
+}
+
+.post-content p {
+  @apply text-lg md:text-xl text-justify;
+}
+
+.post-content h1,
+h2,
+h3,
+h4,
+h5 {
+  @apply font-bold;
+}
+
+.post-content h1 {
+  @apply text-4xl;
+}
+.post-content h2 {
+  @apply text-3xl;
+}
+.post-content h3 {
+  @apply text-2xl;
+}
+
+.post-content h3 {
+  @apply text-xl;
+}
+
+.post-content blockquote {
+  @apply border-l-8 border-secondary p-8 text-secondary bg-gray-50 font-bold;
+}
+
+.post-content ul {
+  @apply my-6 list-disc ml-5;
+}
+/* Sanity post css ends */

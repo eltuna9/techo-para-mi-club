@@ -1,18 +1,16 @@
-import ErrorPage from 'next/error'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { CallToAction, ContainerWithBackground, Footer } from '../../components'
 import Menu from '../../components/Menu'
+import { PostContent } from '../../components/newsSections'
 import {
+  getClient,
+  overlayDrafts,
   postQuery,
   postSlugsQuery,
-  getClient,
   urlFor,
   usePreviewSubscription,
-  overlayDrafts,
-  PortableText,
-  serializers,
 } from '../../lib'
 import { Post } from '../../models'
 import { formatDateToString } from '../../utils/stringUtils'
@@ -68,22 +66,20 @@ export default function Article(props: ArticleProps) {
         backgroundImageSrc={
           urlFor(post.mainImage).width(1200).url() ?? undefined
         }
-        className="w-full h-5xl flex flex-wrap relative"
+        className="w-full h-screen-1/3 md:h-screen-2/3 flex flex-wrap relative"
       >
         <Menu className="absolute top-0 md:top-12 z-10 transform -translate-x-1/2 left-1/2" />
-        <div className="self-end text-center w-full">
-          <h1 className="text-8xl text-gray-100 font-extrabold mb-3 text-shadow-md">
+        <div className="self-end text-center w-full bg-gradient-to-t from-black pt-6">
+          <h1 className="text-3xl md:text-6xl xl:text-8xl text-gray-100 font-extrabold mb-3 text-shadow-md">
             {post.title}
           </h1>
-          <h2 className="text-3xl font-bold text-tertiary mb-6">
+          <h2 className="text-lg md:text-2xl font-bold text-tertiary mb-6 text-shadow-md">
             {formatDateToString(new Date(post.publishedAt))}
             {post.author && <> - {post.author.name}</>}
           </h2>
         </div>
       </ContainerWithBackground>
-      <main className="w-full xl:container md:w-11/12 mx-auto p-12">
-        <PortableText blocks={post.body} serializers={serializers} />
-      </main>
+      <PostContent post={post} />
       <CallToAction backgroundColor="secondary" />
       <Footer />
     </div>
