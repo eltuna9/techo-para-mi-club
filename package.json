@@ -6,6 +6,7 @@
     "dev": "concurrently \"next\" \"cd sanity && sanity start\"",
     "prebuild": "echo 'Building Sanity to public/studio' && cd sanity && npm i && npx @sanity/cli build ../public/studio -y && echo 'Done'",
     "build": "next build",
+    "build-next": "next build",
     "sanity": "cd sanity && sanity start",
     "start": "vercel dev",
     "lint": "next lint",
