@@ -1,7 +1,11 @@
-import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React from 'react'
-import { CallToAction, ContainerWithBackground, Footer } from '../../components'
+import {
+  AppHeader,
+  CallToAction,
+  ContainerWithBackground,
+  Footer,
+} from '../../components'
 import Menu from '../../components/Menu'
 import { PostContent } from '../../components/newsSections'
 import {
@@ -10,7 +14,6 @@ import {
   postQuery,
   postSlugsQuery,
   urlFor,
-  usePreviewSubscription,
 } from '../../lib'
 import { Post } from '../../models'
 import { formatDateToString } from '../../utils/stringUtils'
@@ -22,46 +25,22 @@ interface ArticleProps {
 
 export default function Article(props: ArticleProps) {
   const router = useRouter()
-  const { data, preview } = props
+  const { data } = props
+  const { post } = data ?? {}
 
-  const slug = data?.post?.slug
-  const {
-    data: { post, morePosts },
-  } = usePreviewSubscription(postQuery, {
-    params: { slug },
-    initialData: data,
-    enabled: preview && !!slug,
-  })
-
-  console.log('post', post)
-  console.log('morePosts', morePosts)
+  if (router.isFallback) return <h1>Loading…</h1>
 
   return (
-    <div>
-      {router.isFallback ? (
-        <h1>Loading…</h1>
-      ) : (
-        <>
-          <article>
-            <Head>
-              <title>{post.title}</title>
-              {post.mainImage && (
-                <meta
-                  key="ogImage"
-                  property="og:image"
-                  content={
-                    urlFor(post.mainImage)
-                      .width(1200)
-                      .height(627)
-                      .fit('crop')
-                      .url() ?? undefined
-                  }
-                />
-              )}
-            </Head>
-          </article>
-        </>
-      )}
+    <>
+      <AppHeader
+        title={` Un techo para mi club - ${post.title}`}
+        imageUrl={
+          urlFor(post.mainImage).width(1200).height(627).fit('crop').url() ??
+          undefined
+        }
+        description={post.excerpt}
+      />
+
       <ContainerWithBackground
         backgroundImageSrc={
           urlFor(post.mainImage).width(1200).url() ?? undefined
@@ -69,7 +48,7 @@ export default function Article(props: ArticleProps) {
         className="w-full h-screen-1/3 md:h-screen-2/3 flex flex-wrap relative"
       >
         <Menu className="absolute top-0 md:top-12 z-10 transform -translate-x-1/2 left-1/2" />
-        <div className="self-end text-center w-full bg-gradient-to-t from-black pt-6">
+        <article className="self-end text-center w-full bg-gradient-to-t from-black pt-6">
           <h1 className="text-3xl md:text-6xl xl:text-8xl text-gray-100 font-extrabold mb-3 text-shadow-md">
             {post.title}
           </h1>
@@ -77,12 +56,12 @@ export default function Article(props: ArticleProps) {
             {formatDateToString(new Date(post.publishedAt))}
             {post.author && <> - {post.author.name}</>}
           </h2>
-        </div>
+        </article>
       </ContainerWithBackground>
       <PostContent post={post} />
       <CallToAction backgroundColor="secondary" />
       <Footer />
-    </div>
+    </>
   )
 }
 

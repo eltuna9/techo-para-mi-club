@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-
 import { groq } from 'next-sanity'
 import { getClient, usePreviewSubscription } from '../../lib'
 import { Post } from '../../models'
@@ -8,7 +7,7 @@ import {
   NewsLandingSection,
   NewsPostSection,
 } from '../../components/newsSections'
-import { CallToAction, Footer } from '../../components'
+import { AppHeader, CallToAction, Footer } from '../../components'
 
 /** This props are going to get injected when next.js calls `getStaticProps` */
 interface NewsPageProps {
@@ -28,6 +27,10 @@ export default function News(props: NewsPageProps) {
 
   return (
     <>
+      <AppHeader
+        title="Un techo para mi club - Novedades"
+        description="Enterate mas sobre todo lo que está pasando en la campaña, lee todas las novedades e historias de este sueño"
+      />
       <NewsLandingSection />
       <NewsPostSection posts={posts} />
       <CallToAction backgroundColor="secondary" />
