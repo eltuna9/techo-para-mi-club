@@ -48,7 +48,7 @@ but this would do for now until we get time to improve it */
 }
 
 .post-content {
-  @apply text-primary;
+  @apply text-white;
 }
 
 .post-content p {

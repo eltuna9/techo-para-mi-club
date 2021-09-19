@@ -33,32 +33,27 @@ export default function Article(props: ArticleProps) {
   return (
     <>
       <AppHeader
-        title={` Un techo para mi club - ${post.title}`}
+        title={`Un techo para mi club - ${post.title}`}
         imageUrl={
           urlFor(post.mainImage).width(1200).height(627).fit('crop').url() ??
           undefined
         }
         description={post.excerpt}
       />
-
-      <ContainerWithBackground
-        backgroundImageSrc={
-          urlFor(post.mainImage).width(1200).url() ?? undefined
-        }
-        className="w-full h-screen-1/3 md:h-screen-2/3 flex flex-wrap relative"
-      >
-        <Menu className="absolute top-0 md:top-12 z-10 transform -translate-x-1/2 left-1/2" />
-        <article className="self-end text-center w-full bg-gradient-to-t from-black pt-6">
-          <h1 className="text-3xl md:text-6xl xl:text-8xl text-gray-100 font-extrabold mb-3 text-shadow-md">
-            {post.title}
-          </h1>
+      <div className="w-full bg-primary pt-24 lg:pt-44">
+        <Menu className="absolute top-0 lg:top-12 z-10 transform -translate-x-1/2 left-1/2" />
+        <article className="xl:container md:w-10/12 mx-auto text-center">
           <h2 className="text-lg md:text-2xl font-bold text-tertiary mb-6 text-shadow-md">
             {formatDateToString(new Date(post.publishedAt))}
             {post.author && <> - {post.author.name}</>}
           </h2>
+          <h1 className="text-3xl md:text-5xl xl:text-6xl text-gray-100 font-extrabold mb-3 text-shadow-md">
+            {post.title}
+          </h1>
+
+          <PostContent post={post} />
         </article>
-      </ContainerWithBackground>
-      <PostContent post={post} />
+      </div>
       <CallToAction backgroundColor="secondary" />
       <Footer />
     </>

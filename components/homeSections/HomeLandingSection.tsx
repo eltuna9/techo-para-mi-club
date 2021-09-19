@@ -7,7 +7,7 @@ import { LogoClub } from '../svg/logoClub'
 export function HomeLandingSection() {
   return (
     <div className="w-full h-screen relative flex">
-      <Menu className="absolute top-0 md:top-12 z-10 transform -translate-x-1/2 left-1/2" />
+      <Menu className="absolute top-0 lg:top-12 z-10 transform -translate-x-1/2 left-1/2" />
       <ContainerWithBackground
         backgroundImage={mainImage}
         className="hidden lg:block w-full lg:w-7/12 h-full"

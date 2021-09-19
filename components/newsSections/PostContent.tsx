@@ -8,7 +8,7 @@ interface PostContentProps {
 export function PostContent(props: PostContentProps) {
   const { post } = props
   return (
-    <main className="xl:container w-10/12 mx-auto py-12 post-content">
+    <main className="px-8 md:px-0 pt-12 pb-24 post-content">
       <PortableText blocks={post.body} serializers={serializers} />
     </main>
   )

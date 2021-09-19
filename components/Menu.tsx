@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Image from 'next/dist/client/image'
 import { IoCloseSharp, IoMenu } from 'react-icons/io5'
 import { ActiveLink } from './ActiveLink'
 import { HelpUsLink } from './HelpUsLink'
@@ -16,7 +15,7 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
 
   return (
     <nav
-      className={`bg-white m-auto w-full lg:w-10/12 md:rounded-full ${
+      className={`bg-white m-auto w-full lg:w-10/12 xl:container lg:rounded-full ${
         className || ''
       }`}
     >
@@ -29,7 +28,7 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
               </Link>
             </div>
           </div>
-          <div className="hidden md:flex items-center space-x-3 ">
+          <div className="hidden lg:flex items-center space-x-3 ">
             <div className="hidden md:flex items-center space-x-1">
               <MenuLink text="Inicio" href="/" />
               <MenuLink text="Novedades" href="/noticias" />
@@ -39,7 +38,7 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
             </div>
             <HelpUsLink className="py-1" />
           </div>
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               className="outline-none mobile-menu-button"
               onClick={handleToggle}
@@ -56,7 +55,7 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
       <div
         className={
           (menuOpen ? 'flex ' : 'hidden') +
-          ' md:hidden mobile-menu rounded-none px-6 py-8 h-full '
+          ' lg:hidden mobile-menu rounded-none px-6 py-8 h-full '
         }
       >
         <ul className="px-6">
