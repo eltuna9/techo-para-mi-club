@@ -6,14 +6,14 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string',
+      type: 'localeString',
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'title',
+        source: 'title.es',
         maxLength: 96,
       },
     },
@@ -26,7 +26,7 @@ export default {
     {
       name: 'excerpt',
       title: 'Resumen',
-      type: 'string',
+      type: 'localeString',
     },
     {
       name: 'mainImage',
@@ -50,13 +50,13 @@ export default {
     {
       name: 'body',
       title: 'Body',
-      type: 'blockContent',
+      type: 'localeBody',
     },
   ],
 
   preview: {
     select: {
-      title: 'title',
+      title: 'title.es',
       author: 'author.name',
       media: 'mainImage',
     },
