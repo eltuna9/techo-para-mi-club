@@ -33,12 +33,12 @@ export default function Article(props: ArticleProps) {
   return (
     <>
       <AppHeader
-        title={`Un techo para mi club - ${post.title}`}
+        title={`Un techo para mi club - ${post.title.es}`}
         imageUrl={
           urlFor(post.mainImage).width(1200).height(627).fit('crop').url() ??
           undefined
         }
-        description={post.excerpt}
+        description={post.excerpt.es}
       />
       <div className="w-full bg-primary pt-24 lg:pt-44">
         <Menu className="absolute top-0 lg:top-12 z-10 transform -translate-x-1/2 left-1/2" />
@@ -48,7 +48,7 @@ export default function Article(props: ArticleProps) {
             {post.author && <> - {post.author.name}</>}
           </h2>
           <h1 className="text-3xl md:text-5xl xl:text-6xl text-gray-100 font-extrabold mb-3 text-shadow-md">
-            {post.title}
+            {post.title.es}
           </h1>
 
           <PostContent post={post} />

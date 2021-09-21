@@ -40,9 +40,9 @@ export function NewsPostSection(props: PostSectionProps) {
                         {formatDateToString(new Date(post.publishedAt))}
                       </h3>
                       <h3 className="text-lg font-bold text-2xl">
-                        {post.title}
+                        {post.title.es}
                       </h3>
-                      <p className="mt-3">{post.excerpt}</p>
+                      <p className="mt-3">{post.excerpt.es}</p>
                     </div>
                   </article>
                 </Link>

@@ -42,6 +42,7 @@ export default function News(props: NewsPageProps) {
 const query = groq`
 *[_type == "post"] | order(_createdAt desc) {
   ..., 
+  body,
   author->,
   mainImage->,
   categories[]->
