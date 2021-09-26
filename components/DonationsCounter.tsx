@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation'
 import * as React from 'react'
 import { extractNumberFromString } from '../utils/stringUtils'
 
@@ -10,6 +11,8 @@ const raisedAmount = '106.320'
 
 export function DonationsCounter(props: DonationsCounterProps) {
   const { className, middleStripYellow } = props
+  const { t } = useTranslation()
+
   const percentage = (
     (parseInt(extractNumberFromString(raisedAmount), 10) * 100) /
     goalAmount
@@ -26,7 +29,7 @@ export function DonationsCounter(props: DonationsCounterProps) {
             <div className="flex justify-between w-full flex-wrap">
               <div className="flex flex-col w-full lg:w-8/12 text-center">
                 <span className="text-secondary mb-4 text-2xl lg:text-2xl xl:text-3xl font-semibold">
-                  Este sueño lleva recaudado
+                  {t('thanks:donationsCounterText')}
                 </span>
                 <span className="text-6xl md:text-8xl font-bold">
                   ${raisedAmount}
@@ -37,7 +40,7 @@ export function DonationsCounter(props: DonationsCounterProps) {
                   {percentage}%
                 </span>
                 <span className="text-secondary mb-4 text-2xl lg:text-2xl xl:text-3xl font-semibold">
-                  del objetivo alcanzado
+                  {t('thanks:donationsCounterText2')}
                 </span>
               </div>
             </div>

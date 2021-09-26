@@ -25,8 +25,7 @@ export function HomeLandingSection() {
             {t('common:campaignName')}
           </h4>
           <p className="text-2xl md:text-4xl text-white">
-            Ayudanos a cumplir el sueño de tener un techo en nuestro club y
-            poder cambiar la realidad de un barrio
+            {t('home:mainHeadline')}
           </p>
         </div>
       </div>
