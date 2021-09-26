@@ -5,7 +5,7 @@
     "*": ["common"],
     "/": ["home"],
     "/ayudanos": ["helpUs"],
-    "/noticias": ["thanks"],
-    "/gracias": ["news"]
+    "/noticias": ["news"],
+    "/gracias": ["thanks"]
   }
 }
