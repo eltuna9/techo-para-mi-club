@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation'
 import * as React from 'react'
 import { HelpUsLink } from './HelpUsLink'
 
@@ -9,6 +10,8 @@ interface CallToActionProps {
 
 export function CallToAction(props: CallToActionProps) {
   const { backgroundColor, className } = props
+  const { t } = useTranslation()
+
   return (
     <div
       className={`w-full pt-12 pb-12 md:pt-24 md:pb-24 lg:pb-32 ${
@@ -26,8 +29,7 @@ export function CallToAction(props: CallToActionProps) {
               backgroundColor === 'secondary' ? 'text-white' : 'text-primary'
             }`}
           >
-            Gracias por haber llegado hasta acá, ayudanos con tu donación o con
-            difusión para que podamos lograrlo
+            {t('common:ctaText')}
           </h3>
         </div>
         <div className="flex w-full md:w-2/6 justify-center items-center pt-8 md:pt-0">
