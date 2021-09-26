@@ -4,11 +4,14 @@ import { ActiveLink } from './ActiveLink'
 import { HelpUsLink } from './HelpUsLink'
 import { LogoCampaingBlue } from './svg'
 import Link from 'next/link'
+import useTranslation from 'next-translate/useTranslation'
 
 export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
   const { className } = props
+  const { t } = useTranslation()
   const [menuOpen, setMenuOpen] = useState(false)
-
+  const transl = t('common:menuHome')
+  console.log('TRANSL: ', transl)
   const handleToggle = () => {
     setMenuOpen(!menuOpen)
   }
@@ -30,11 +33,11 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
           </div>
           <div className="hidden lg:flex items-center space-x-3 ">
             <div className="hidden md:flex items-center space-x-1">
-              <MenuLink text="Inicio" href="/" />
-              <MenuLink text="Novedades" href="/noticias" />
+              <MenuLink text={t('common:menuHome')} href="/" />
+              <MenuLink text={t('common:menuNews')} href="/noticias" />
               {/* 
               <MenuLink text={'El club'} href={'/club'} /> */}
-              <MenuLink text="Gracias" href="/gracias" />
+              <MenuLink text={t('common:menuThanks')} href="/gracias" />
             </div>
             <HelpUsLink className="py-1" />
           </div>
