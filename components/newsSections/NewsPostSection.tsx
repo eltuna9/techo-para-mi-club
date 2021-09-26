@@ -4,6 +4,7 @@ import { Post } from '../../models'
 import { urlFor } from '../../lib'
 import { ContainerWithBackground } from '..'
 import { formatDateToString } from '../../utils/stringUtils'
+import useTranslation from 'next-translate/useTranslation'
 
 interface PostSectionProps {
   posts: Post[]
@@ -11,14 +12,16 @@ interface PostSectionProps {
 
 export function NewsPostSection(props: PostSectionProps) {
   const { posts } = props
+  const { t, lang } = useTranslation()
+
   return (
     <div className="w-full md:-mt-20 relative">
       <div className="bg-primary xl:container md:w-11/12 md:rounded-5xl mx-auto xl:-mt-60 md:p-16 p-8">
         <h3 className="text-tertiary text-md text-center font-bold mt-24 md:mt-0">
-          UN TECHO PARA MI CLUB
+          {t('common:campaignName').toUpperCase()}
         </h3>
         <h1 className="text-white text-2xl md:text-5xl font-extrabold text-center">
-          Ultimas noticias
+          {t('news:pageHeadline')}
         </h1>
         <div className="flex justify-around flex-wrap pt-12">
           {posts &&
@@ -40,9 +43,9 @@ export function NewsPostSection(props: PostSectionProps) {
                         {formatDateToString(new Date(post.publishedAt))}
                       </h3>
                       <h3 className="text-lg font-bold text-2xl">
-                        {post.title.es}
+                        {post.title[lang]}
                       </h3>
-                      <p className="mt-3">{post.excerpt.es}</p>
+                      <p className="mt-3">{post.excerpt[lang]}</p>
                     </div>
                   </article>
                 </Link>
