@@ -1,3 +1,5 @@
+const nextTranslate = require('next-translate')
+
 const STUDIO_REWRITE = {
   source: '/sanity',
   destination:
@@ -17,4 +19,5 @@ const STATIC_REWRITE = {
 module.exports = {
   reactStrictMode: true,
   rewrites: () => [STATIC_REWRITE, STUDIO_REWRITE],
+  ...nextTranslate(),
 }
