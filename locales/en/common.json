@@ -1,3 +1,9 @@
 {
-  "campaignName": "A roof for my club"
+  "campaignName": "A roof for my club",
+  "ctaText": "Thank you for having come this far, help us with your donation or by sharing this page so that we can achieve our goal",
+  "ctaButton": "Donate",
+
+  "menuHome": "Home",
+  "menuNews": "News",
+  "menuThanks": "Thanks"
 }

@@ -1,3 +1,9 @@
 {
-  "campaignName": "A roof for my club"
+  "campaignName": "Un techo para mi club",
+  "ctaText": "Gracias por haber llegado hasta acá, ayudanos con tu donación o con difusión para que podamos lograrlo",
+  "ctaButton": "Ayudanos",
+
+  "menuHome": "Inicio",
+  "menuNews": "Novedades",
+  "menuThanks": "Gracias"
 }
