@@ -12,5 +12,8 @@
 
   "menuHome": "Inicio",
   "menuNews": "Novedades",
-  "menuThanks": "Gracias"
+  "menuThanks": "Gracias",
+
+  "raisedAmount": "Este sueño lleva recaudado",
+  "raisedPercentage": "del objetivo alcanzado"
 }

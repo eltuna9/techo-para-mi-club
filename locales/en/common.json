@@ -12,5 +12,8 @@
 
   "menuHome": "Home",
   "menuNews": "News",
-  "menuThanks": "Thanks"
+  "menuThanks": "Thanks",
+
+  "raisedAmount": "This dream has raised",
+  "raisedPercentage": "of the goal achieved"
 }

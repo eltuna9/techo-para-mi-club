@@ -3,8 +3,5 @@
   "thanksText": "Cada aporte suma un montón",
   "thanksSubtitle": "a todas las personas que ya nos están ayudando",
 
-  "donationsCounterText": "Este sueño lleva recaudado",
-  "donationsCounterText2": "del objetivo alcanzado",
-
   "donationSummary": "gracias por tu ayuda de {{amount}}"
 }

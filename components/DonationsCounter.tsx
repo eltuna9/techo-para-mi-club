@@ -29,7 +29,7 @@ export function DonationsCounter(props: DonationsCounterProps) {
             <div className="flex justify-between w-full flex-wrap">
               <div className="flex flex-col w-full lg:w-8/12 text-center">
                 <span className="text-secondary mb-4 text-2xl lg:text-2xl xl:text-3xl font-semibold">
-                  {t('thanks:donationsCounterText')}
+                  {t('common:raisedAmount')}
                 </span>
                 <span className="text-6xl md:text-8xl font-bold">
                   ${raisedAmount}
@@ -40,7 +40,7 @@ export function DonationsCounter(props: DonationsCounterProps) {
                   {percentage}%
                 </span>
                 <span className="text-secondary mb-4 text-2xl lg:text-2xl xl:text-3xl font-semibold">
-                  {t('thanks:donationsCounterText2')}
+                  {t('common:raisedPercentage')}
                 </span>
               </div>
             </div>
