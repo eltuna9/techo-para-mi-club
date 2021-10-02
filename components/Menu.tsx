@@ -5,13 +5,14 @@ import { HelpUsLink } from './HelpUsLink'
 import { LogoCampaingBlue } from './svg'
 import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
+import { useRouter } from 'next/router'
+import { LanguagesDropDown } from '.'
 
 export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
   const { className } = props
   const { t } = useTranslation()
   const [menuOpen, setMenuOpen] = useState(false)
-  const transl = t('common:menuHome')
-  console.log('TRANSL: ', transl)
+  const router = useRouter()
   const handleToggle = () => {
     setMenuOpen(!menuOpen)
   }
@@ -40,6 +41,7 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
               <MenuLink text={t('common:menuThanks')} href="/gracias" />
             </div>
             <HelpUsLink className="py-1" />
+            <LanguagesDropDown />
           </div>
           <div className="lg:hidden flex items-center">
             <button
