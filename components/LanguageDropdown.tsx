@@ -36,7 +36,7 @@ export function LanguagesDropDown() {
             <Link href={router.asPath} locale="es">
               <span
                 className={`text-gray-700 block px-4 py-2 text-sm cursor-pointer ${
-                  router.locale === 'es' ? 'text-primary text-bold' : ''
+                  router.locale === 'es' ? 'text-primary font-bold' : ''
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -47,7 +47,7 @@ export function LanguagesDropDown() {
             <Link href={router.asPath} locale="en">
               <span
                 className={`text-gray-700 block px-4 py-2 text-sm cursor-pointer ${
-                  router.locale === 'en' ? 'text-primary text-bold' : ''
+                  router.locale === 'en' ? 'text-primary font-bold' : ''
                 }`}
                 onClick={() => setIsOpen(false)}
               >
