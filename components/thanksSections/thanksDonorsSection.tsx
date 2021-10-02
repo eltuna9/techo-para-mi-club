@@ -73,13 +73,14 @@ export function ThanksDonorsSection() {
 
 function DonorCard(props: Donor) {
   const { fullName, amountDonated } = props
-  const { t } = useTranslation()
-
+  const { t, lang } = useTranslation()
+  const amountTranslated =
+    lang !== 'es' ? `${amountDonated}ARS` : `$${amountDonated}`
   return (
     <div className="bg-gray-200 relative rounded-2xl md:mr-8 px-6 py-3 md:px-8 md:py-6 mb-6 text-primary w-full xl:w-auto text-md md:text-xl">
       <div className="bg-secondary absolute w-3 md:w-4 h-full left-0 top-0 rounded-l-2xl" />
-      <span className="text-secondary font-extrabold">{fullName.trim()},</span>
-      {` ${t('thanks:donationSummary', { amount: amountDonated })}`}
+      <span className="text-secondary font-extrabold">{fullName.trim()}, </span>
+      {t('thanks:donationSummary', { amount: amountTranslated })}
     </div>
   )
 }

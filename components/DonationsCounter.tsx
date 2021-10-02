@@ -11,7 +11,7 @@ const raisedAmount = '106.320'
 
 export function DonationsCounter(props: DonationsCounterProps) {
   const { className, middleStripYellow } = props
-  const { t } = useTranslation()
+  const { t, lang } = useTranslation()
 
   const percentage = (
     (parseInt(extractNumberFromString(raisedAmount), 10) * 100) /
@@ -32,7 +32,9 @@ export function DonationsCounter(props: DonationsCounterProps) {
                   {t('common:raisedAmount')}
                 </span>
                 <span className="text-6xl md:text-8xl font-bold">
-                  ${raisedAmount}
+                  {`${lang === 'es' ? '$' : ''}`}
+                  {raisedAmount}
+                  {`${lang !== 'es' ? 'ARS' : ''}`}
                 </span>
               </div>
               <div className="flex flex-col w-full lg:w-4/12 text-center ">
