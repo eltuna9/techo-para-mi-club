@@ -7,7 +7,7 @@ interface DonationsCounterProps {
   middleStripYellow?: boolean
 }
 const goalAmount = 20000000
-const raisedAmount = '106.320'
+const raisedAmount = '20.106.320'
 
 export function DonationsCounter(props: DonationsCounterProps) {
   const { className, middleStripYellow } = props
@@ -22,7 +22,7 @@ export function DonationsCounter(props: DonationsCounterProps) {
     <div className={`w-screen ${className || ''}`}>
       <div className="relative w-full">
         <Stripes middleStripYellow={middleStripYellow} />
-        <div className="w-full lg:w-10/12 xl:container mx-auto relative z-50">
+        <div className="w-full lg:w-10/12 xl:container mx-auto relative z-30">
           <div
             className={`w-full mx-auto p-4 md:p-10 lg:border-8 lg:rounded-3xl flex justify-center items-center border-t-8 border-b-8 border-white bg-primary text-white shadow-lg`}
           >
@@ -31,14 +31,13 @@ export function DonationsCounter(props: DonationsCounterProps) {
                 <span className="text-secondary mb-4 text-2xl lg:text-2xl xl:text-3xl font-semibold">
                   {t('common:raisedAmount')}
                 </span>
-                <span className="text-6xl md:text-8xl font-bold">
-                  {`${lang === 'es' ? '$' : ''}`}
+                <span className="text-5xl md:text-6xl xl:text-8xl font-bold">
+                  {`${lang === 'es' ? '$' : 'ARS '}`}
                   {raisedAmount}
-                  {`${lang !== 'es' ? 'ARS' : ''}`}
                 </span>
               </div>
               <div className="flex flex-col w-full lg:w-4/12 text-center ">
-                <span className="text-tertiary pt-4 text-6xl md:text-8xl font-bold">
+                <span className="text-tertiary pt-4 text-6xl md:text-7xl font-bold">
                   {percentage}%
                 </span>
                 <span className="text-secondary mb-4 text-2xl lg:text-2xl xl:text-3xl font-semibold">

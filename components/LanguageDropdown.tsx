@@ -12,7 +12,7 @@ export function LanguagesDropDown() {
     <div className="relative inline-block text-left">
       <div>
         <span
-          className="inline-flex justify-center items-center w-full cursor-pointer rounded-md border border-gray-300 shadow-sm px-2 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+          className="inline-flex justify-center items-center w-full cursor-pointer rounded-md border border-gray-300 shadow-sm px-2 py-2 bg-white text-sm font-medium text-primary font-bold hover:bg-gray-50 "
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
@@ -35,7 +35,9 @@ export function LanguagesDropDown() {
           <div className="py-1" role="none">
             <Link href={router.asPath} locale="es">
               <span
-                className="text-gray-700 block px-4 py-2 text-sm cursor-pointer"
+                className={`text-gray-700 block px-4 py-2 text-sm cursor-pointer ${
+                  router.locale === 'es' ? 'text-primary text-bold' : ''
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 <BiWorld className="inline-block mr-2" />
@@ -44,7 +46,9 @@ export function LanguagesDropDown() {
             </Link>
             <Link href={router.asPath} locale="en">
               <span
-                className="text-gray-700 block px-4 py-2 text-sm cursor-pointer"
+                className={`text-gray-700 block px-4 py-2 text-sm cursor-pointer ${
+                  router.locale === 'en' ? 'text-primary text-bold' : ''
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 <BiWorld className="inline-block mr-2" />

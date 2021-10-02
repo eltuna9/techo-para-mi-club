@@ -12,14 +12,13 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
   const { className } = props
   const { t } = useTranslation()
   const [menuOpen, setMenuOpen] = useState(false)
-  const router = useRouter()
   const handleToggle = () => {
     setMenuOpen(!menuOpen)
   }
 
   return (
     <nav
-      className={`bg-white m-auto w-full lg:w-10/12 xl:container lg:rounded-full ${
+      className={`bg-white m-auto w-full lg:w-10/12 xl:container lg:rounded-full z-50 ${
         className || ''
       }`}
     >
@@ -64,12 +63,13 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
         }
       >
         <ul className="px-6">
-          <ResponsiveMenuLink text="Inicio" href="/" />
-          <ResponsiveMenuLink text="Novedades" href="/noticias" />
+          <ResponsiveMenuLink text={t('common:menuHome')} href="/" />
+          <ResponsiveMenuLink text={t('common:menuNews')} href="/noticias" />
           {/* <ResponsiveMenuLink text={'El club'} href={'/home'} />*/}
-          <ResponsiveMenuLink text="Gracias" href="/gracias" />
+          <ResponsiveMenuLink text={t('common:menuThanks')} href="/gracias" />
           <li className="my-10">
-            <HelpUsLink />
+            <HelpUsLink className="mr-2" />
+            <LanguagesDropDown />
           </li>
         </ul>
       </div>
