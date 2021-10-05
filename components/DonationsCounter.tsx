@@ -32,8 +32,11 @@ export function DonationsCounter(props: DonationsCounterProps) {
                   {t('common:raisedAmount')}
                 </span>
                 <span className="text-5xl md:text-6xl xl:text-8xl font-bold">
-                  {`${lang === 'es' ? '$' : 'ARS '}`}
-                  {raisedAmount}
+                  {`${
+                    lang === 'es'
+                      ? `$${raisedAmount}`
+                      : `ARS ${raisedAmount.replace('.', ',')} `
+                  }`}
                 </span>
               </div>
               <div className="flex flex-col w-full lg:w-4/12 text-center ">
