@@ -7,7 +7,7 @@ interface DonationsCounterProps {
   middleStripYellow?: boolean
 }
 const goalAmount = 20000000
-const raisedAmount = '110.106.320'
+const raisedAmount = '110.677'
 
 export function DonationsCounter(props: DonationsCounterProps) {
   const { className, middleStripYellow } = props
