@@ -1,11 +1,7 @@
+import useTranslation from 'next-translate/useTranslation'
 import { useRouter } from 'next/router'
 import React from 'react'
-import {
-  AppHeader,
-  CallToAction,
-  ContainerWithBackground,
-  Footer,
-} from '../../components'
+import { AppHeader, CallToAction, Footer } from '../../components'
 import Menu from '../../components/Menu'
 import { PostContent } from '../../components/newsSections'
 import {
@@ -27,18 +23,21 @@ export default function Article(props: ArticleProps) {
   const router = useRouter()
   const { data } = props
   const { post } = data ?? {}
+  const { t, lang } = useTranslation()
 
   if (router.isFallback) return <h1>Loading…</h1>
 
   return (
     <>
       <AppHeader
-        title={`Un techo para mi club - ${post.title.es}`}
+        title={`${t('common:campaignName')} - ${
+          post.title[lang as 'es' | 'en']
+        }`}
         imageUrl={
           urlFor(post.mainImage).width(1200).height(627).fit('crop').url() ??
           undefined
         }
-        description={post.excerpt.es}
+        description={post.excerpt[lang as 'es' | 'en']}
       />
       <div className="w-full bg-primary pt-24 lg:pt-44">
         <Menu className="absolute top-0 lg:top-12 z-10 transform -translate-x-1/2 left-1/2" />
@@ -48,7 +47,7 @@ export default function Article(props: ArticleProps) {
             {post.author && <> - {post.author.name}</>}
           </h2>
           <h1 className="text-3xl md:text-5xl xl:text-6xl text-gray-100 font-extrabold mb-3 text-shadow-md">
-            {post.title.es}
+            {post.title[lang as 'es' | 'en']}
           </h1>
 
           <PostContent post={post} />

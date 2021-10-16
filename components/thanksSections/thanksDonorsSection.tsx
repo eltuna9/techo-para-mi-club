@@ -38,7 +38,7 @@ export function ThanksDonorsSection() {
   return (
     <div className="w-full flex flex-wrap bg-white py-24">
       <h1 className="text-primary text-center w-full font-extrabold text-3xl md:text-6xl">
-        {t('thanks:thanksText')}
+        {t('thanks:thanksText')}{' '}
         <FaHeart className="text-secondary inline-block" />
       </h1>
 
