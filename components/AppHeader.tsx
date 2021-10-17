@@ -1,9 +1,11 @@
 import Head from 'next/head'
+import { ReactNode } from 'react'
 
 interface AppHeaderProps {
   title?: string
   description?: string
   imageUrl?: string
+  children?: ReactNode
 }
 
 const defaultDescription =
@@ -13,7 +15,7 @@ const defaultTitle = 'Un techo para mi club - Colecta solidaria'
 const defaultImgUrl = '/techo-og.png'
 
 export function AppHeader(props: AppHeaderProps) {
-  const { title, description, imageUrl } = props
+  const { title, description, imageUrl, children } = props
   return (
     <Head>
       <meta charSet="UTF-8" />
@@ -35,6 +37,7 @@ export function AppHeader(props: AppHeaderProps) {
       <meta property="og:image" content={imageUrl ?? defaultImgUrl} />
       <link rel="icon" href="/favicons/favicon.png" />
       <title>{title ?? defaultTitle}</title>
+      {children}
     </Head>
   )
 }
