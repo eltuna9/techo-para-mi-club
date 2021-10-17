@@ -1,4 +1,21 @@
 {
   "helpUsTitle": "Todo aporte nos acerca a cumplir este sueño",
-  "helpUsText": "También nos ayudas siguiéndonos en Instagram, o simplemente comentándole a un amigo sobre la campaña para que más personas conozcan nuestra historia."
+  "helpUsText": "También nos ayudas siguiéndonos en Instagram, o simplemente comentándole a un amigo sobre la campaña para que más personas conozcan nuestra historia.",
+  "paymentAmount": "Monto",
+  "paymentName": "Nombre (como aparece en la tarjeta)",
+  "paymentSecurityCode": "CVC",
+  "paymentCard": "Numero de tarjeta",
+  "paymentEmail": "Tu email",
+  "paymentMonth": "Mes",
+  "paymentYear": "Año",
+  "paymentAmountPh": "5000",
+  "paymentNamePh": "Martin Luter King",
+  "paymentSecurityCodePh": "",
+  "paymentCardPh": "1234 5678 9101 1123",
+  "paymentEmailPh": "martinluterking@paraiso.com",
+  "paymentMonthPh": "MM",
+  "paymentYearPh": "AA",
+  "paymentDonateButton": "Donar",
+  "paymentTitle": "Ayudanos con tu donación",
+  "paymentDescription": "Todo suma! Cualquier monto nos ayuda a poder continuar luchando por este gran objetivo, invertí en el futuro de nuestro pais, invertí en una comunidad con menos jovenes en las calles."
 }

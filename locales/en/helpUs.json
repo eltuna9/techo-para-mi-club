@@ -1,4 +1,21 @@
 {
   "helpUsTitle": "Every contribution brings us closer to fulfilling this dream",
-  "helpUsText": "You also help us by following us on Instagram, or simply telling a friend about the campaign so that more people know our story."
+  "helpUsText": "You also help us by following us on Instagram, or simply telling a friend about the campaign so that more people know our story.",
+  "paymentAmount": "Amount (ARS)",
+  "paymentName": "Name (as it appears in your card)",
+  "paymentSecurityCode": "CVC",
+  "paymentCard": "Card number",
+  "paymentEmail": "Your email",
+  "paymentMonth": "Month",
+  "paymentYear": "Year",
+  "paymentAmountPh": "6000",
+  "paymentNamePh": "Martin Luter King",
+  "paymentSecurityCodePh": "",
+  "paymentCardPh": "1234 5678 9101 1123",
+  "paymentEmailPh": "martinluterking@heaven.com",
+  "paymentMonthPh": "MM",
+  "paymentYearPh": "YY",
+  "paymentDonateButton": "Donate",
+  "paymentTitle": "Help us with your donation",
+  "paymentDescription": "Everything counts! Even ARS 50 (around USD 0.5) can go a long way and help all these children have a better place to play the sport they love. Help us make the difference 🤗"
 }
