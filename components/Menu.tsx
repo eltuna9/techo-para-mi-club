@@ -5,7 +5,6 @@ import { HelpUsLink } from './HelpUsLink'
 import { LogoCampaingBlue } from './svg'
 import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
-import { useRouter } from 'next/router'
 import { LanguagesDropDown } from '.'
 
 export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
@@ -27,7 +26,9 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
           <div className="flex space-x-7">
             <div className="flex items-center cursor-pointer py-3">
               <Link href="/">
-                <LogoCampaingBlue className="h-10" />
+                <span>
+                  <LogoCampaingBlue className="h-10" />
+                </span>
               </Link>
             </div>
           </div>
