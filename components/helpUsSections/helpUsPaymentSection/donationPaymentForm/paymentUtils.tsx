@@ -1,16 +1,18 @@
-import { I18n } from 'next-translate'
+import { Translate } from 'next-translate'
 import useTranslation from 'next-translate/useTranslation'
 import { useEffect } from 'react'
 import { submitDonation } from '../../../../apiClients'
 
 /**Initializes MercadoPago card form */
-export function initializeMPCardForm(i18n: I18n) {
-  const { t } = i18n
-  // @ts-ignore
-  const mp = new MercadoPago(process.env.NEXT_PUBLIC_MP_PUBLIC_KEY)
+export function submitMPCardForm(
+  t: Translate,
+  amount: string,
+  submitForm: (submitter?: HTMLElement | null | undefined) => void
+) {
+  const mp = new window.MercadoPago(process.env.NEXT_PUBLIC_MP_PUBLIC_KEY)
   const cardForm = mp.cardForm({
     //harcoded for now! will use an effect to reinitialize this every time the value changes in the form
-    amount: '100.5',
+    amount,
     autoMount: true,
     form: {
       id: 'mp-checkout',
@@ -58,7 +60,7 @@ export function initializeMPCardForm(i18n: I18n) {
     callbacks: {
       onFormMounted: (error: any) => {
         if (error) return console.error('Form Mounted handling error: ', error)
-        console.log('Form mounted')
+        submitForm()
       },
       onSubmit: async (event: any) => {
         event.preventDefault()
@@ -104,11 +106,4 @@ export function initializeMPCardForm(i18n: I18n) {
       },
     },
   })
-}
-
-export function useInitializeMPCardForm() {
-  const i18n = useTranslation()
-  useEffect(() => {
-    initializeMPCardForm(i18n)
-  }, [])
 }
