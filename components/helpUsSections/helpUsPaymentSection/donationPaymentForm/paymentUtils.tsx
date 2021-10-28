@@ -1,15 +1,26 @@
 import { Translate } from 'next-translate'
-import useTranslation from 'next-translate/useTranslation'
-import { useEffect } from 'react'
+import { FormState } from 'react-hook-form'
 import { submitDonation } from '../../../../apiClients'
+
+export interface DonationFormFields {
+  amount: string
+  email: string
+  creditCardNumber: string
+  donorName: string
+  expiryMonth: string
+  expiryYear: string
+  cvc: string
+}
 
 /**Initializes MercadoPago card form */
 export function submitMPCardForm(
   t: Translate,
   amount: string,
-  submitForm: (submitter?: HTMLElement | null | undefined) => void
+  form: FormState<DonationFormFields>
 ) {
   const mp = new window.MercadoPago(process.env.NEXT_PUBLIC_MP_PUBLIC_KEY)
+  console.log('Created MP', mp)
+
   const cardForm = mp.cardForm({
     //harcoded for now! will use an effect to reinitialize this every time the value changes in the form
     amount,
@@ -60,7 +71,11 @@ export function submitMPCardForm(
     callbacks: {
       onFormMounted: (error: any) => {
         if (error) return console.error('Form Mounted handling error: ', error)
-        submitForm()
+        let element = document.getElementById(
+          'form-checkout__identificationType'
+        ) as HTMLSelectElement
+        element.value = 'Otro'
+        console.log('from is', form)
       },
       onSubmit: async (event: any) => {
         event.preventDefault()
@@ -73,7 +88,6 @@ export function submitMPCardForm(
           cardholderEmail: email,
           amount,
           token,
-          installments,
           identificationNumber,
           identificationType,
         } = cardForm.getCardFormData()
@@ -83,7 +97,7 @@ export function submitMPCardForm(
           issuerId,
           paymentMethodId,
           transactionAmount: Number(amount),
-          installments: Number(installments),
+          installments: 1,
           description: 'Descripción del producto',
           email,
           identificationType,
@@ -106,4 +120,12 @@ export function submitMPCardForm(
       },
     },
   })
+  console.log('rhf', form)
+
+  //if they have submitted before, lets remount the form to update any data
+  if (form.submitCount > 1) {
+    cardForm.unmount()
+    cardForm.mount()
+    // cardForm.submit()
+  }
 }

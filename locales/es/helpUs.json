@@ -1,7 +1,7 @@
 {
   "helpUsTitle": "Todo aporte nos acerca a cumplir este sueño",
   "helpUsText": "También nos ayudas siguiéndonos en Instagram, o simplemente comentándole a un amigo sobre la campaña para que más personas conozcan nuestra historia.",
-  "paymentAmount": "Monto",
+  "paymentAmount": "Monto (ARS)",
   "paymentName": "Nombre (como aparece en la tarjeta)",
   "paymentSecurityCode": "CVC",
   "paymentCard": "Numero de tarjeta",
@@ -17,5 +17,12 @@
   "paymentYearPh": "AA",
   "paymentDonateButton": "Donar",
   "paymentTitle": "Ayudanos con tu donación",
-  "paymentDescription": "Todo suma! Cualquier monto nos ayuda a poder continuar luchando por este gran objetivo, invertí en el futuro de nuestro pais, invertí en una comunidad con menos jovenes en las calles."
+  "paymentDescription": "Todo suma! Cualquier monto nos ayuda a poder continuar luchando por este gran objetivo, invertí en el futuro de nuestro pais, invertí en una comunidad con menos jovenes en las calles.",
+  "invalidAmount": "El monto debe ser al menos 10ARS",
+  "requiredField": "Requerido",
+  "invalidCard": "Numero de tarjeta inválido",
+  "invalidMonth": "Mes inválido",
+  "invalidYear": "Año inválido",
+  "invalidEmail": "Email inválido",
+  "invalidCVC": "CVC inválido"
 }

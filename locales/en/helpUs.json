@@ -17,5 +17,12 @@
   "paymentYearPh": "YY",
   "paymentDonateButton": "Donate",
   "paymentTitle": "Help us with your donation",
-  "paymentDescription": "Everything counts! Even ARS 50 (around USD 0.5) can go a long way and help all these children have a better place to play the sport they love. Help us make the difference 🤗"
+  "paymentDescription": "Everything counts! Even ARS 50 (around USD 0.5) can go a long way and help all these children have a better place to play the sport they love. Help us make the difference 🤗",
+  "invalidAmount": "Amount should be at least 10ARS",
+  "requiredField": "Required",
+  "invalidCard": "Invalid card number",
+  "invalidMonth": "Invalid month",
+  "invalidYear": "Invalid year",
+  "invalidEmail": "Invalid email",
+  "invalidCVC": "Invalid CVC"
 }
