@@ -12,16 +12,28 @@ export interface DonationFormFields {
   cvc: string
 }
 
+export const MPManager = new window.MercadoPago(
+  process.env.NEXT_PUBLIC_MP_PUBLIC_KEY as string,
+  {
+    advancedFraudPrevention: false,
+  }
+)
+
+export const getCleanCardNumber = (cardNumber: string) => {
+  return cardNumber.replace(/\s/g, '')
+}
+
+export const getBin = (cardNumber: string) => {
+  return cardNumber.replace(/\s/g, '').substr(0, 6)
+}
+
 /**Initializes MercadoPago card form */
 export function submitMPCardForm(
   t: Translate,
   amount: string,
   form: FormState<DonationFormFields>
 ) {
-  const mp = new window.MercadoPago(process.env.NEXT_PUBLIC_MP_PUBLIC_KEY)
-  console.log('Created MP', mp)
-
-  const cardForm = mp.cardForm({
+  const cardForm = MPManager.cardForm({
     //harcoded for now! will use an effect to reinitialize this every time the value changes in the form
     amount,
     autoMount: true,

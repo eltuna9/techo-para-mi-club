@@ -1,5 +1,7 @@
+import { MercadoPago } from './MercadoPago'
+
 export declare global {
   interface Window {
-    MercadoPago: any
+    MercadoPago: MercadoPago
   }
 }
