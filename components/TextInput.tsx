@@ -5,10 +5,11 @@ interface TextInputProps extends HTMLProps<HTMLInputElement> {
   id: string
   className?: string
   errorText?: string
+  disabled?: boolean
 }
 
 export function TextInput(props: TextInputProps) {
-  const { label, className, errorText, id, ...rest } = props
+  const { label, className, errorText, id, disabled, ...rest } = props
   return (
     <div className={`w-full ${className}`}>
       <label className="block mb-1" htmlFor="formGridCode_card">
@@ -17,9 +18,10 @@ export function TextInput(props: TextInputProps) {
       <input
         className={`w-full h-10 px-3 text-base placeholder-gray-400 border rounded-lg focus:shadow-outline ${
           !!errorText ? 'border-red-700' : ''
-        }`}
+        } ${disabled ? 'bg-gray-100' : ''}`}
         type="text"
         name={id}
+        disabled={disabled}
         id={id}
         {...rest}
       />

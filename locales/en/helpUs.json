@@ -21,6 +21,7 @@
   "invalidAmount": "Amount should be at least 10ARS",
   "requiredField": "Required",
   "invalidCard": "Invalid card number",
+  "invalidCardDetails": "Something went wrong when verifying your card, please verify the card number introduced and try again.",
   "invalidMonth": "Invalid month",
   "invalidYear": "Invalid year",
   "invalidEmail": "Invalid email",

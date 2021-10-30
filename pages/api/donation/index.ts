@@ -21,6 +21,7 @@ export default async function handler(
 
   try {
     const mpResponse = await mercadopago.payment.save(paymentData)
+    console.log('paymentResponse', mpResponse)
     res.status(200).json({
       status: mpResponse.body.status,
       status_detail: mpResponse.body.status_detail,

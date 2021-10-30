@@ -6,6 +6,4 @@ export interface PaymentPayload {
   installments: number
   description: string
   email: string
-  identificationNumber: number
-  identificationType: string
 }

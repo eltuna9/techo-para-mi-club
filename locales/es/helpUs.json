@@ -21,6 +21,7 @@
   "invalidAmount": "El monto debe ser al menos 10ARS",
   "requiredField": "Requerido",
   "invalidCard": "Numero de tarjeta inválido",
+  "invalidCardDetails": "Algo salió mal cuando intentábamos verificar tu tarjeta, por favor verificá que los datos sean correctos e intentá nuevamente.",
   "invalidMonth": "Mes inválido",
   "invalidYear": "Año inválido",
   "invalidEmail": "Email inválido",
