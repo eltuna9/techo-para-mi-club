@@ -56,7 +56,6 @@ export function DonationPaymentForm() {
       setSubmissionError(paymentDescriptor)
     } else {
       setSubmissionError(null)
-      alert(JSON.stringify(paymentDescriptor))
       setSuccess(paymentDescriptor)
     }
   }
