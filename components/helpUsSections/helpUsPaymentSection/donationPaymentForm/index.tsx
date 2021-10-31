@@ -5,6 +5,7 @@ import Cards, { Focused } from 'react-credit-cards'
 import 'react-credit-cards/es/styles-compiled.css'
 import { Controller, useForm } from 'react-hook-form'
 import { MessageBanner, TextInput } from '../../..'
+import { PaymentSuccessFull } from './PaymentSuccessFull'
 import { DonationFormFields, submitPayment } from './paymentUtils'
 
 const EMAIL_REGEX =
@@ -48,8 +49,8 @@ export function DonationPaymentForm() {
     formHash.current = hash(watch())
     const submitPaymentResponse = await submitPayment(data, t)
     const paymentDescriptor = {
-      title: submitPaymentResponse.description,
-      description: submitPaymentResponse.details,
+      title: submitPaymentResponse.paymentResultTitle,
+      description: submitPaymentResponse.paymentResultDescription,
     }
     if (submitPaymentResponse.status === 'failure') {
       setSubmissionError(paymentDescriptor)
@@ -60,15 +61,21 @@ export function DonationPaymentForm() {
     }
   }
 
-  if (success) return <div>GRACIAS POR TU DONACION!</div>
+  if (success)
+    return (
+      <PaymentSuccessFull
+        paymentResultTitle={success.title}
+        paymentResultDescription={success.description}
+      />
+    )
 
   return (
     <form
-      className="space-y-4 text-gray-700 w-11/12 lg:w-3/5 mx-auto"
+      className="space-y-4 text-gray-700 w-11/12 xl:w-3/5 mx-auto"
       id="mp-checkout"
       ref={form}
     >
-      <div className="flex">
+      <div className="flex pb-5">
         <Cards
           cvc={watch('cvc')}
           expiry={`${watch('expiryMonth') ?? ''}/${watch('expiryYear') ?? ''}`}

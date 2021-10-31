@@ -1,11 +1,11 @@
 {
   "helpUsTitle": "Every contribution brings us closer to fulfilling this dream",
-  "accountDonationTitle": "You can donate directly to the club bank account:",
+  "accountDonationTitle": "Donating to the club bank account:",
   "bankAccount": "Credicoop Bank",
   "accountHolder": "Account holder:",
   "taxId": "Tax Id (CUIT):",
   "accountNumber": "Account Number (CBU):",
-  "helpUsText": "You also help us by following us on Instagram, or simply telling a friend about the campaign so that more people know our story.",
+  "helpUsText": "<0>You also help us by <1>following us on Instagram</1>, or simply telling a friend about the campaign so that more people know our story.</0>",
   "paymentAmount": "Donation amount (ARS)",
   "paymentName": "Name (as it appears in your card)",
   "paymentSecurityCode": "CVC",
@@ -21,8 +21,10 @@
   "paymentMonthPh": "MM",
   "paymentYearPh": "YY",
   "paymentDonateButton": "Donate",
-  "paymentTitle": "Help us with your donation",
-  "paymentDescription": "Everything counts! Even ARS 50 (around USD 0.5) can go a long way and help all these children have a better place to play the sport they love. Help us make the difference 🤗",
+  "paymentTitle": "Donating using your credit/debit card",
+  "shareTitle": "Spreading the word 📣",
+  "paymentDescription": "Everything counts! Even ARS 50 (around USD 0.5) can go a long way and help all these children have a better place to play the sport they love. Help us make the difference!",
+  "helpMethods": "Find out all the ways you can help us 👇",
   "invalidAmount": "Amount should be at least 10ARS",
   "requiredField": "Required",
   "invalidCardNumber": "Invalid card number",
@@ -39,5 +41,7 @@
   "paymentRejectedTitle": "Your payment was rejected 😢",
   "creditCardRejected": "There is an issue with your credit card and the payment cannot be processed, please try again with a different card",
   "insufficientAmount": "Your payment method does not have enough founds",
-  "authorizationNeeded": "You need to call your card provider to authorize this payment"
+  "authorizationNeeded": "You need to call your card provider to authorize this payment",
+  "paymentThanksTitle": "Thank you for making a difference!",
+  "shareText": "Lets help these kids accomplish their dream!"
 }

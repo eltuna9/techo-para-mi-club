@@ -5,10 +5,11 @@ export function HelpUsDonateText() {
   const { t } = useTranslation()
 
   return (
-    <div className="w-full bg-gray-200">
-      <div className="w-11/12 md:w-4/5 lg:w-3/5 mx-auto py-16">
+    <div className="w-full bg-gray-200" id="donateText">
+      <div className="w-11/12 md:w-4/5 mx-auto py-20">
         <p className="text-primary text-sm md:text-2xl lg:text-3xl text-center">
-          {t('helpUs:paymentDescription')}
+          {t('helpUs:paymentDescription')} <br /> <br />
+          {t('helpUs:helpMethods')}
         </p>
       </div>
     </div>

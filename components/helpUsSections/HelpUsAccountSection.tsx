@@ -5,7 +5,7 @@ export function HelpUsAccountSection() {
   const { t } = useTranslation()
   return (
     <div className="w-full bg-white" id="account">
-      <div className="w-11/12 lg:container p-4 pb-12 pt-12 mx-auto md:p-16 lg:p-32">
+      <div className="w-11/12 lg:container p-4 pb-12 pt-12 mx-auto md:p-16 lg:pt-20">
         <h1 className="text-secondary text-lg md:text-5xl text-center mb-4 md:mb-8 font-bold">
           {t('helpUs:accountDonationTitle')}
         </h1>

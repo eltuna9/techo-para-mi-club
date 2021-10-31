@@ -16,19 +16,36 @@ import {
   EmailIcon,
 } from 'next-share'
 import useTranslation from 'next-translate/useTranslation'
-
+import Trans from 'next-translate/Trans'
+const ShareDescription = (props: any) => (
+  <h1
+    className="text-primary text-md text-center md:text-2xl font-bold mb-12"
+    {...props}
+  />
+)
 export function HelpUsShareSection() {
   const { t } = useTranslation()
 
   const siteUrl = 'www.untechoparamiclub.com.ar'
-  const shareText =
-    'Ayudemos a este club a cumplir con el sueño de todos estos niños!'
+  const shareText = t('helpUs:shareText')
   return (
     <div className="w-full bg-gray-200">
-      <div className="w-15/16 mx-auto lg:container p-6 pb-16 pt-12 md:p-16 lg:p-32">
-        <h1 className="text-primary text-lg text-center md:text-3xl font-bold mb-5">
-          {t('helpUs:helpUsText')}
+      <div className="w-15/16 mx-auto lg:container p-6 pb-16 pt-12 md:p-16 lg:p-32 lg:py-20">
+        <h1 className="text-primary text-lg md:text-5xl text-center mb-4 md:mb-10 font-bold">
+          {t('helpUs:shareTitle')}
         </h1>
+        <Trans
+          i18nKey="helpUs:helpUsText"
+          components={[
+            <ShareDescription />,
+            <a
+              className="text-tertiary font-bold"
+              href="https://www.instagram.com/general_paz_salta/"
+              target="_blank"
+              rel="noreferrer"
+            />,
+          ]}
+        />
 
         <h1 className="text-secondary text-lg text-center md:text-2xl font-bold mb-4">
           {t('common:ctaShare')}

@@ -1,13 +1,13 @@
 {
   "helpUsTitle": "Todo aporte nos acerca a cumplir este sueño",
-  "accountDonationTitle": "Podés donar a la cuenta bancaria del club:",
+  "accountDonationTitle": "Doná a la cuenta bancaria del club:",
   "bankAccount": "Banco Credicoop - Cuenta corriente",
   "accountHolder": "Titular:",
   "taxId": "CUIT:",
   "accountNumber": "CBU:",
-  "helpUsText": "También nos ayudas siguiéndonos en Instagram, o simplemente comentándole a un amigo sobre la campaña para que más personas conozcan nuestra historia.",
+  "helpUsText": "<0>También nos ayudas <1>siguiéndonos en Instagram</1>, o simplemente comentándole a un amigo sobre la campaña para que más personas conozcan nuestra historia.</0>",
   "paymentAmount": "Monto a donar (ARS)",
-  "paymentName": "Nombre (como aparece en la tarjeta)",
+  "paymentName": "Titular ",
   "paymentSecurityCode": "CVC",
   "paymentCard": "Numero de tarjeta",
   "paymentEmail": "Tu email",
@@ -21,8 +21,10 @@
   "paymentMonthPh": "MM",
   "paymentYearPh": "AA",
   "paymentDonateButton": "Donar",
-  "paymentTitle": "Ayudanos con tu donación",
+  "paymentTitle": "Doná usando tu tarjeta de débito/credito",
+  "shareTitle": "Corré la bola 📣",
   "paymentDescription": "Todo suma! Cualquier monto nos ayuda a poder continuar luchando por este gran objetivo, invertí en el futuro de nuestro país, invertí en una comunidad con menos jóvenes en las calles.",
+  "helpMethods": "Enterate de todas las formas que nos podes ayudar aquí 👇",
   "invalidAmount": "El monto debe ser al menos 10ARS",
   "requiredField": "Requerido",
   "invalidCardNumber": "Numero de tarjeta inválido",
@@ -39,5 +41,7 @@
   "paymentRejectedTitle": "El pago fue rechazado 😢",
   "creditCardRejected": "Hay un problema con tu tarjeta y el pago no pudo ser procesado, por favor intentá nuevamente con una tarjeta diferente",
   "insufficientAmount": "No hay suficientes fondos disponibles en la cuenta asociada con tu tarjeta",
-  "authorizationNeeded": "Es necesario autorizar el pago con tu banco"
+  "authorizationNeeded": "Es necesario autorizar el pago con tu banco",
+  "paymentThanksTitle": "Gracias por hacer la diferencia!",
+  "shareText": "Ayudemos a este club a cumplir con el sueño de todos estos niños!"
 }

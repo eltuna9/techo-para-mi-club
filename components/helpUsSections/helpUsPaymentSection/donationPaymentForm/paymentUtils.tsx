@@ -25,8 +25,8 @@ export const getBin = (cardNumber: string) => {
 
 interface SubmitDonationReponse {
   status: 'success' | 'failure'
-  description: string
-  details: string
+  paymentResultTitle: string
+  paymentResultDescription: string
 }
 
 export const submitPayment = async (
@@ -53,8 +53,8 @@ export const submitPayment = async (
     if (paymentMethods.results.length < 1) {
       return {
         status: 'failure',
-        description: t('helpUs:invalidCreditCard'),
-        details: t('helpUs:invalidCardDetails'),
+        paymentResultTitle: t('helpUs:invalidCreditCard'),
+        paymentResultDescription: t('helpUs:invalidCardDetails'),
       }
     }
     const paymentPayload = {
@@ -68,11 +68,12 @@ export const submitPayment = async (
     }
     var response = await submitDonation(paymentPayload)
     return processPaymentResponse(response, t)
-  } catch (e) {
+  } catch (error) {
+    console.error(error)
     return {
       status: 'failure',
-      description: t('helpUs:invalidCreditCard'),
-      details: t('helpUs:invalidCardDetails'),
+      paymentResultTitle: t('helpUs:invalidCreditCard'),
+      paymentResultDescription: t('helpUs:invalidCardDetails'),
     }
   }
 }
@@ -84,28 +85,28 @@ const processPaymentResponse = (
   if (response.status === PaymentStatuses.ERROR)
     return {
       status: 'failure',
-      description: t('helpUs:invalidCreditCard'),
-      details: t('helpUs:invalidCardDetails'),
+      paymentResultTitle: t('helpUs:invalidCreditCard'),
+      paymentResultDescription: t('helpUs:invalidCardDetails'),
     }
 
   if (response.status === PaymentStatuses.APPROVED)
     return {
       status: 'success',
-      description: t('helpUs:paymentSuccessFullTitle'),
-      details: t('helpUs:paymentSuccessFullDescription'),
+      paymentResultTitle: t('helpUs:paymentSuccessFullTitle'),
+      paymentResultDescription: t('helpUs:paymentSuccessFullDescription'),
     }
 
   if (response.status === PaymentStatuses.IN_PROCESS) {
     return {
       status: 'success',
-      description: t('helpUs:paymentInProcessTitle'),
-      details: t('helpUs:paymentInProcessDescription'),
+      paymentResultTitle: t('helpUs:paymentInProcessTitle'),
+      paymentResultDescription: t('helpUs:paymentInProcessDescription'),
     }
   }
   let returnValue: SubmitDonationReponse = {
     status: 'failure',
-    description: t('helpUs:paymentRejectedTitle'),
-    details: t('helpUs:creditCardRejected'),
+    paymentResultTitle: t('helpUs:paymentRejectedTitle'),
+    paymentResultDescription: t('helpUs:creditCardRejected'),
   }
   // if it got here, only chance is that payment has been rejected 😢
   switch (response.statusDetail) {
@@ -113,7 +114,7 @@ const processPaymentResponse = (
     case PaymentStatusDetails.BAD_CVC:
     case PaymentStatusDetails.BAD_DATE:
     case PaymentStatusDetails.BAD_FILLED_OTHER:
-      returnValue.details = t('helpUs:invalidCardDetails')
+      returnValue.paymentResultDescription = t('helpUs:invalidCardDetails')
       break
 
     case PaymentStatusDetails.BLACKLISTED:
@@ -121,13 +122,13 @@ const processPaymentResponse = (
     case PaymentStatusDetails.CARD_REJECTED:
     case PaymentStatusDetails.HIGH_RISK:
     case PaymentStatusDetails.REJECTED_OTHER:
-      returnValue.details = t('helpUs:creditCardRejected')
+      returnValue.paymentResultDescription = t('helpUs:creditCardRejected')
 
     case PaymentStatusDetails.CALL_FOR_AUTHORIZE:
-      returnValue.details = t('helpUs:authorizationNeeded')
+      returnValue.paymentResultDescription = t('helpUs:authorizationNeeded')
 
     case PaymentStatusDetails.INSUFFICIENT_FOUNDS:
-      returnValue.details = t('helpUs:insufficientAmount')
+      returnValue.paymentResultDescription = t('helpUs:insufficientAmount')
 
     default:
       break
