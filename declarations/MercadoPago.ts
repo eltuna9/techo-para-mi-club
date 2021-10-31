@@ -6,7 +6,6 @@ export interface MercadoPago {
   getPaymentMethods: (
     params: PaymentMethodsParams
   ) => Promise<PaymentMethodsResponse>
-  getIssuers: (issuersParams: IssuersParams) => Promise<IssuersResponse>
   cardForm: (params: any) => any
 }
 
