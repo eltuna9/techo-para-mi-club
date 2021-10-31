@@ -1,17 +1,17 @@
 import useTranslation from 'next-translate/useTranslation'
-import React, { createRef, useEffect, useRef, useState } from 'react'
+import hash from 'object-hash'
+import React, { useEffect, useRef, useState } from 'react'
 import Cards, { Focused } from 'react-credit-cards'
 import 'react-credit-cards/es/styles-compiled.css'
 import { Controller, useForm } from 'react-hook-form'
 import { MessageBanner, TextInput } from '../../..'
 import { DonationFormFields, submitPayment } from './paymentUtils'
-import hash from 'object-hash'
 
 const EMAIL_REGEX =
   /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
 const CARD_REGEX = /(\d{4}[-. ]?){4}|\d{4}[-. ]?\d{6}[-. ]?\d{5}/g
 
-interface PaymentError {
+interface PaymentResponseDetails {
   title: string
   description: string
 }
@@ -33,10 +33,9 @@ export function DonationPaymentForm() {
 
   const { errors } = formState
   const [focussedCardField, setFocussedCardField] = useState<Focused>()
-  const [submissionError, setSubmissionError] = useState<PaymentError | null>(
-    null
-  )
-  const [success, setSuccess] = useState(false)
+  const [submissionError, setSubmissionError] =
+    useState<PaymentResponseDetails | null>(null)
+  const [success, setSuccess] = useState<PaymentResponseDetails | null>(null)
   const form = useRef<HTMLFormElement>(null)
   let formHash = useRef(hash(watch()))
 
@@ -47,19 +46,25 @@ export function DonationPaymentForm() {
   const onSubmit = async (data: DonationFormFields) => {
     setSubmissionError(null)
     formHash.current = hash(watch())
-    const onError = (title: string, description: string) =>
-      setSubmissionError({
-        title,
-        description,
-      })
-    const success = await submitPayment(data, onError, t)
-    setSuccess(success)
+    const submitPaymentResponse = await submitPayment(data, t)
+    const paymentDescriptor = {
+      title: submitPaymentResponse.description,
+      description: submitPaymentResponse.details,
+    }
+    if (submitPaymentResponse.status === 'failure') {
+      setSubmissionError(paymentDescriptor)
+    } else {
+      setSubmissionError(null)
+      alert(JSON.stringify(paymentDescriptor))
+      setSuccess(paymentDescriptor)
+    }
   }
+
   if (success) return <div>GRACIAS POR TU DONACION!</div>
 
   return (
     <form
-      className="space-y-4 text-gray-700 lg:w-3/5 mx-auto"
+      className="space-y-4 text-gray-700 w-11/12 lg:w-3/5 mx-auto"
       id="mp-checkout"
       ref={form}
     >
@@ -90,7 +95,7 @@ export function DonationPaymentForm() {
               errorText={errors.amount ? t('helpUs:invalidAmount') : undefined}
               disabled={formState.isSubmitting}
               {...field}
-              className="md:w-1/2 px-2"
+              className="w-full md:w-1/2 px-2 pb-3"
             />
           )}
         />
@@ -111,12 +116,10 @@ export function DonationPaymentForm() {
               errorText={errors.email ? t('helpUs:invalidEmail') : undefined}
               disabled={formState.isSubmitting}
               {...field}
-              className="md:w-1/2 px-2"
+              className="w-full md:w-1/2 px-2 pb-3"
             />
           )}
         />
-      </div>
-      <div className="flex flex-wrap">
         <Controller
           name="creditCardNumber"
           control={control}
@@ -130,10 +133,12 @@ export function DonationPaymentForm() {
               onFocus={() => setFocussedCardField('number')}
               disabled={formState.isSubmitting}
               errorText={
-                errors.creditCardNumber ? t('helpUs:invalidCard') : undefined
+                errors.creditCardNumber
+                  ? t('helpUs:invalidCardNumber')
+                  : undefined
               }
               {...field}
-              className="md:w-1/2 px-2"
+              className="w-full md:w-1/2 px-2 pb-3"
             />
           )}
         />
@@ -153,13 +158,11 @@ export function DonationPaymentForm() {
               }
               {...field}
               disabled={formState.isSubmitting}
-              className="md:w-1/2 px-2"
+              className="w-full md:w-1/2 px-2 pb-3"
             />
           )}
         />
-      </div>
-      <div className="flex flex-wrap">
-        <div className="w-full md:w-1/2 px-2 flex flex-wrap justify-between">
+        <div className="w-full px-2 flex flex-wrap justify-between">
           <Controller
             name="expiryMonth"
             control={control}
@@ -176,7 +179,7 @@ export function DonationPaymentForm() {
                 }
                 disabled={formState.isSubmitting}
                 {...field}
-                className="md:w-1/2 pr-2"
+                className="w-1/3 pr-2 pb-3"
               />
             )}
           />
@@ -195,31 +198,31 @@ export function DonationPaymentForm() {
                   errors.expiryYear ? t('helpUs:invalidYear') : undefined
                 }
                 {...field}
-                onBlur={() => setFocussedCardField('number')}
                 disabled={formState.isSubmitting}
-                className="md:w-1/2 pl-2"
+                className="w-1/3 pl-2 pb-3"
+              />
+            )}
+          />
+          <Controller
+            name="cvc"
+            control={control}
+            rules={{ pattern: /^\d{3,4}$/g, required: true }}
+            defaultValue=""
+            render={({ field }) => (
+              <TextInput
+                label={t('helpUs:paymentSecurityCode')}
+                placeholder=""
+                onFocus={() => setFocussedCardField('cvc')}
+                errorText={errors.cvc ? t('helpUs:invalidCVC') : undefined}
+                disabled={formState.isSubmitting}
+                id="cvc"
+                {...field}
+                onBlur={() => setFocussedCardField('number')}
+                className="w-1/3 pl-4 pb-3"
               />
             )}
           />
         </div>
-        <Controller
-          name="cvc"
-          control={control}
-          rules={{ pattern: /^\d{3,4}$/g, required: true }}
-          defaultValue=""
-          render={({ field }) => (
-            <TextInput
-              label={t('helpUs:paymentSecurityCode')}
-              placeholder=""
-              onFocus={() => setFocussedCardField('cvc')}
-              errorText={errors.cvc ? t('helpUs:invalidCVC') : undefined}
-              disabled={formState.isSubmitting}
-              id="cvc"
-              {...field}
-              className="md:w-1/2 px-2"
-            />
-          )}
-        />
       </div>
       {submissionError !== null && (
         <MessageBanner
@@ -229,8 +232,9 @@ export function DonationPaymentForm() {
       )}
 
       <button
+        type="button"
         onClick={handleSubmit(onSubmit)}
-        className="text-primary bg-tertiary font-semibold rounded hover:bg-tertiary-light transition duration-300 cursor-pointer p-6"
+        className="text-primary bg-tertiary font-semibold rounded hover:bg-tertiary-light transition duration-300 cursor-pointer px-8 py-2 w-full"
         disabled={formState.isSubmitting}
       >
         {formState.isSubmitting && (

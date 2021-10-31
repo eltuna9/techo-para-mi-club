@@ -1,8 +1,14 @@
 import { PaymentPayload } from '../models/PaymentPayload'
 
+export interface DonationResponse {
+  status: string
+  statusDetail: string
+  id: number
+}
+
 export async function submitDonation(
   paymentData: PaymentPayload
-): Promise<any> {
+): Promise<DonationResponse> {
   const response = await fetch('/api/donation', {
     method: 'POST',
     headers: {
@@ -10,5 +16,5 @@ export async function submitDonation(
     },
     body: JSON.stringify(paymentData),
   })
-  return await response.json()
+  return (await response.json()) as DonationResponse
 }

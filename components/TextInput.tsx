@@ -11,7 +11,7 @@ interface TextInputProps extends HTMLProps<HTMLInputElement> {
 export function TextInput(props: TextInputProps) {
   const { label, className, errorText, id, disabled, ...rest } = props
   return (
-    <div className={`w-full ${className}`}>
+    <div className={`${className}`}>
       <label className="block mb-1" htmlFor="formGridCode_card">
         {label}
       </label>

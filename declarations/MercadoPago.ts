@@ -78,16 +78,29 @@ interface PaymentMethodsResponse {
   ]
 }
 
-interface IssuersParams {
-  paymentMethodId: string
-  bin: string
+export enum PaymentStatuses {
+  APPROVED = 'approved',
+  IN_PROCESS = 'in_process',
+  REJECTED = 'rejected',
+  /**Not oficially supported by MP, but use in our API */
+  ERROR = 'error',
 }
 
-interface IssuersResponse {
-  id: string
-  name: string
-  secure_thumbnail: string
-  thumbnail: string
-  processing_mode: string
-  merchant_account_id?: string
+export enum PaymentStatusDetails {
+  ACCREDITED = 'accredited',
+  PENDING_CONTINGENCY = 'pending_contingency',
+  PENDING_REVIEW_MANUAL = 'pending_review_manual',
+  BAD_CARD_NUMBER = 'cc_rejected_bad_filled_card_number',
+  BAD_DATE = 'cc_rejected_bad_filled_date',
+  BAD_FILLED_OTHER = 'cc_rejected_bad_filled_other',
+  BAD_CVC = 'cc_rejected_bad_filled_security_code',
+  BLACKLISTED = 'cc_rejected_blacklist',
+  CALL_FOR_AUTHORIZE = 'cc_rejected_call_for_authorize',
+  CARD_DISABLED = 'cc_rejected_card_disabled',
+  CARD_REJECTED = 'cc_rejected_card_error',
+  DUPLICATED_PAYMENT = 'cc_rejected_duplicated_payment',
+  HIGH_RISK = 'cc_rejected_high_risk',
+  INSUFFICIENT_FOUNDS = 'cc_rejected_insufficient_amount',
+  MAX_ATTEMPTS = 'cc_rejected_max_attempts',
+  REJECTED_OTHER = 'cc_rejected_other_reason',
 }

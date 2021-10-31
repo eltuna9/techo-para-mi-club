@@ -24,11 +24,11 @@ export default async function handler(
     console.log('paymentResponse', mpResponse)
     res.status(200).json({
       status: mpResponse.body.status,
-      status_detail: mpResponse.body.status_detail,
+      statusDetail: mpResponse.body.status_detail,
       id: mpResponse.body.id,
     })
-    mpResponse.status
   } catch (error) {
-    res.status(400).send(error)
+    console.log('returning error', error)
+    res.status(400).send({ status: 'error' })
   }
 }
