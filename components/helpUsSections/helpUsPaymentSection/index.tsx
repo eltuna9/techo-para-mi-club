@@ -4,7 +4,7 @@ import { DonationPaymentForm } from './donationPaymentForm'
 export function HelpUsPaymentSection() {
   const { t } = useTranslation()
   return (
-    <div className="bg-gray-100 py-20">
+    <div className="bg-gray-100 py-12 md:py-20">
       <div className="w-11/12 md:w-4/5 lg:w-3/5 mx-auto text-primary">
         <h1 className="text-lg md:text-5xl text-center mb-4 md:mb-8 font-bold">
           {t('helpUs:paymentTitle')}

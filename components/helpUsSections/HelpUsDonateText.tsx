@@ -6,7 +6,7 @@ export function HelpUsDonateText() {
 
   return (
     <div className="w-full bg-gray-200" id="donateText">
-      <div className="w-11/12 md:w-4/5 mx-auto py-20">
+      <div className="w-11/12 md:w-4/5 mx-auto py-12 md:py-20">
         <p className="text-primary text-sm md:text-2xl lg:text-3xl text-center">
           {t('helpUs:paymentDescription')} <br /> <br />
           {t('helpUs:helpMethods')}
