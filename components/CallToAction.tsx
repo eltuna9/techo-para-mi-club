@@ -33,7 +33,7 @@ export function CallToAction(props: CallToActionProps) {
           </h3>
         </div>
         <div className="flex w-full md:w-2/6 justify-center items-center pt-8 md:pt-0">
-          <HelpUsLink className="lg:text-4xl xl:text-4xl lg:px-12 xl:px-12" />
+          <HelpUsLink className="lg:text-3xl xl:text-4xl lg:px-12 xl:px-12" />
         </div>
       </div>
     </div>
