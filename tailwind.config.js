@@ -32,6 +32,15 @@ module.exports = {
         '5xl': '3rem',
         '6xl': '4rem',
       },
+      height: {
+        '5xl': '35rem',
+        'screen-1/3': '33vh',
+        'screen-2/3': '66vh',
+      },
+      width: {
+        'screen-1/3': '33vw',
+        'screen-2/3': '66vw',
+      },
     },
   },
   variants: {

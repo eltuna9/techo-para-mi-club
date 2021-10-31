@@ -1,0 +1,19 @@
+{
+  "campaignName": "A roof for my club",
+
+  "contact": "Contact",
+
+  "ctaText": "Thank you for having come this far, help us with your donation or by sharing this page so that we can achieve our goal",
+  "ctaButton": "Help us",
+  "ctaSeeMore": "See More",
+  "ctaShare": "Share on:",
+
+  "loading": "Loading",
+
+  "menuHome": "Home",
+  "menuNews": "News",
+  "menuThanks": "Thanks",
+
+  "raisedAmount": "This dream has raised",
+  "raisedPercentage": "of the goal achieved"
+}

@@ -15,8 +15,11 @@ import {
   EmailShareButton,
   EmailIcon,
 } from 'next-share'
+import useTranslation from 'next-translate/useTranslation'
 
 export function HelpUsShareSection() {
+  const { t } = useTranslation()
+
   const siteUrl = 'www.untechoparamiclub.com.ar'
   const shareText =
     'Ayudemos a este club a cumplir con el sueño de todos estos niños!'
@@ -24,13 +27,11 @@ export function HelpUsShareSection() {
     <div className="w-full bg-gray-200">
       <div className="w-15/16 mx-auto lg:container p-6 pb-16 pt-12 md:p-16 lg:p-32">
         <h1 className="text-primary text-lg text-center md:text-3xl font-bold mb-5">
-          También nos ayudas siguiéndonos en Instagram, o simplemente
-          comentándole a un amigo sobre la campaña para que más personas
-          conozcan nuestra historia.
+          {t('helpUs:helpUsText')}
         </h1>
 
         <h1 className="text-secondary text-lg text-center md:text-2xl font-bold mb-4">
-          Compartilo en:
+          {t('common:ctaShare')}
         </h1>
 
         <div className="flex flex-wrap justify-center">

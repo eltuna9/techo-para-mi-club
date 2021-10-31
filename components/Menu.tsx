@@ -1,22 +1,24 @@
 import React, { useState } from 'react'
-import Image from 'next/dist/client/image'
 import { IoCloseSharp, IoMenu } from 'react-icons/io5'
 import { ActiveLink } from './ActiveLink'
 import { HelpUsLink } from './HelpUsLink'
 import { LogoCampaingBlue } from './svg'
 import Link from 'next/link'
+import useTranslation from 'next-translate/useTranslation'
+import { useRouter } from 'next/router'
+import { LanguagesDropDown } from '.'
 
 export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
   const { className } = props
+  const { t } = useTranslation()
   const [menuOpen, setMenuOpen] = useState(false)
-
   const handleToggle = () => {
     setMenuOpen(!menuOpen)
   }
 
   return (
     <nav
-      className={`bg-white m-auto w-full lg:w-10/12 md:rounded-full ${
+      className={`bg-white m-auto w-full lg:w-10/12 xl:container lg:rounded-full z-50 ${
         className || ''
       }`}
     >
@@ -29,16 +31,18 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
               </Link>
             </div>
           </div>
-          <div className="hidden md:flex items-center space-x-3 ">
+          <div className="hidden lg:flex items-center space-x-3 ">
             <div className="hidden md:flex items-center space-x-1">
-              <MenuLink text="Inicio" href="/" />
-              {/* <MenuLink text={'Novedades'} href={'/news'} />
+              <MenuLink text={t('common:menuHome')} href="/" />
+              <MenuLink text={t('common:menuNews')} href="/noticias" />
+              {/* 
               <MenuLink text={'El club'} href={'/club'} /> */}
-              <MenuLink text="Gracias" href="/gracias" />
+              <MenuLink text={t('common:menuThanks')} href="/gracias" />
             </div>
             <HelpUsLink className="py-1" />
+            <LanguagesDropDown />
           </div>
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               className="outline-none mobile-menu-button"
               onClick={handleToggle}
@@ -55,16 +59,17 @@ export default function Menu(props: React.HTMLProps<HTMLDivElement>) {
       <div
         className={
           (menuOpen ? 'flex ' : 'hidden') +
-          ' md:hidden mobile-menu rounded-none px-6 py-8 h-full '
+          ' lg:hidden mobile-menu rounded-none px-6 py-8 h-full '
         }
       >
         <ul className="px-6">
-          <ResponsiveMenuLink text="Inicio" href="/" />
-          {/* <ResponsiveMenuLink text={'Novedades'} href={'/home'} />
-          <ResponsiveMenuLink text={'El club'} href={'/home'} />*/}
-          <ResponsiveMenuLink text="Gracias" href="/gracias" />
+          <ResponsiveMenuLink text={t('common:menuHome')} href="/" />
+          <ResponsiveMenuLink text={t('common:menuNews')} href="/noticias" />
+          {/* <ResponsiveMenuLink text={'El club'} href={'/home'} />*/}
+          <ResponsiveMenuLink text={t('common:menuThanks')} href="/gracias" />
           <li className="my-10">
-            <HelpUsLink />
+            <HelpUsLink className="mr-2" />
+            <LanguagesDropDown />
           </li>
         </ul>
       </div>

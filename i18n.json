@@ -1,0 +1,11 @@
+{
+  "locales": ["es", "en"],
+  "defaultLocale": "es",
+  "pages": {
+    "*": ["common"],
+    "/": ["home"],
+    "/ayudanos": ["helpUs"],
+    "/noticias": ["news"],
+    "/gracias": ["thanks"]
+  }
+}

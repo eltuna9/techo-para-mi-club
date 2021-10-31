@@ -1,6 +1,19 @@
 import Head from 'next/head'
 
-export function AppHeader() {
+interface AppHeaderProps {
+  title?: string
+  description?: string
+  imageUrl?: string
+}
+
+const defaultDescription =
+  'Ayudemos a este club de barrio a cumplir su sueño. Juntos podemos lograrlo!'
+
+const defaultTitle = 'Un techo para mi club - Colecta solidaria'
+const defaultImgUrl = '/techo-og.png'
+
+export function AppHeader(props: AppHeaderProps) {
+  const { title, description, imageUrl } = props
   return (
     <Head>
       <meta charSet="UTF-8" />
@@ -11,20 +24,17 @@ export function AppHeader() {
         name="keywords"
         content="Solidaridad, basketball, basquetbol, Salta, General Paz"
       />
-      <meta
-        name="description"
-        content="Ayudemos a este club de barrio a cumplir su sueño. Juntos podemos lograrlo!"
-      />
+      <meta name="description" content={description ?? defaultDescription} />
       <meta property="og:url" content="https://www.untechoparamiclub.com.ar/" />
       <meta property="og:type" content="article" />
-      <meta property="og:title" content="Un techo para mi club" />
+      <meta property="og:title" content={title ?? defaultTitle} />
       <meta
         property="og:description"
-        content="Ayudemos a este club de barrio a cumplir su sueño. Juntos podemos lograrlo!"
+        content={description ?? defaultDescription}
       />
-      <meta property="og:image" content="/techo-og.png" />
+      <meta property="og:image" content={imageUrl ?? defaultImgUrl} />
       <link rel="icon" href="/favicons/favicon.png" />
-      <title>Un techo para mi club - Colecta solidaria</title>
+      <title>{title ?? defaultTitle}</title>
     </Head>
   )
 }

@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 import { ReactNode } from 'react'
 import { FaFacebookF, FaInstagram, FaCaretUp } from 'react-icons/fa'
@@ -6,6 +7,8 @@ import { LogoCampaingWhite } from './svg/logoCampaignWhite'
 import { LogoClub } from './svg/logoClub'
 
 export function Footer() {
+  const { t } = useTranslation()
+
   const handleCaretClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -25,8 +28,12 @@ export function Footer() {
         </FooterSection>
         <FooterSection>
           <div className="text-center">
-            <h4 className="text-tertiary text-lg">CONTACTO</h4>
-            <p className="text-white text-lg">San Juan 1550 - Salta Capital</p>
+            <h4 className="text-tertiary text-lg">
+              {t('common:contact').toUpperCase()}
+            </h4>
+            <p className="text-white text-lg">
+              San Juan 1550 - Salta Capital, Argentina
+            </p>
             <div className="flex pt-4 justify-center">
               <a
                 href="https://www.instagram.com/general_paz_salta/"

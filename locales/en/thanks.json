@@ -1,0 +1,7 @@
+{
+  "thanks": "thank you",
+  "thanksText": "Every donation counts",
+  "thanksSubtitle": "to all the people who are already helping us",
+
+  "donationSummary": "thanks for your donation of {{amount}}"
+}

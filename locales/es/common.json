@@ -1,0 +1,19 @@
+{
+  "campaignName": "Un techo para mi club",
+
+  "contact": "Contacto",
+
+  "ctaText": "Gracias por haber llegado hasta acá, ayudanos con tu donación o con difusión para que podamos lograrlo",
+  "ctaButton": "Ayudanos",
+  "ctaSeeMore": "Ver Mas",
+  "ctaShare": "Compartilo en:",
+
+  "loading": "Cargando",
+
+  "menuHome": "Inicio",
+  "menuNews": "Novedades",
+  "menuThanks": "Gracias",
+
+  "raisedAmount": "Este sueño lleva recaudado",
+  "raisedPercentage": "del objetivo alcanzado"
+}

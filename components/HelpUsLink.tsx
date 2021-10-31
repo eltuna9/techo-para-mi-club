@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
 import * as React from 'react'
 
@@ -6,6 +7,8 @@ interface HelpUsLinkProps {
 }
 export function HelpUsLink(props: HelpUsLinkProps) {
   const { className } = props
+  const { t } = useTranslation()
+
   return (
     <Link href="/ayudanos" passHref>
       <span
@@ -13,7 +16,7 @@ export function HelpUsLink(props: HelpUsLinkProps) {
           className || ''
         } `}
       >
-        Ayudanos
+        {t('common:ctaButton')}
       </span>
     </Link>
   )
