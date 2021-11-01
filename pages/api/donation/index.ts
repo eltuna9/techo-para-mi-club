@@ -18,9 +18,14 @@ export default async function handler(
       email: req.body.email,
     },
   }
+  console.log('header', req.headers['X-meli-session-id'])
 
   try {
-    const mpResponse = await mercadopago.payment.save(paymentData)
+    const mpResponse = await mercadopago.payment.save(paymentData, {
+      headers: {
+        ['X-meli-session-id']: req.body.deviceToken as string,
+      },
+    })
     console.log('paymentResponse', mpResponse)
     res.status(200).json({
       status: mpResponse.body.status,

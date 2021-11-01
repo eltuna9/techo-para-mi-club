@@ -65,6 +65,7 @@ export const submitPayment = async (
       installments: 1,
       description: `Donacion de $${data.amount}`,
       email: data.email,
+      deviceToken: window.MP_DEVICE_SESSION_ID,
     }
     var response = await submitDonation(paymentPayload)
     return processPaymentResponse(response, t)

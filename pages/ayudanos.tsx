@@ -16,7 +16,18 @@ export default function Ayudanos() {
         title="Un techo para mi club - Ayudanos"
         description="Ayudanos a cumplir este sueño, ayudanos con difusión o con tu donación. Todo suma!"
       >
-        <script async src="https://sdk.mercadopago.com/js/v2"></script>
+        <script
+          src="https://www.mercadopago.com/v2/security.js"
+          /* @ts-ignore */
+          view="ayudanos"
+          async
+        ></script>
+        <script
+          async
+          src="https://sdk.mercadopago.com/js/v2"
+          /* @ts-ignore */
+          output="MP_DEVICE_SESSION_ID"
+        ></script>
       </AppHeader>
       <HelpUsLandingSection />
       <HelpUsDonateText />
