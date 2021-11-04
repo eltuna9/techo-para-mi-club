@@ -15,7 +15,7 @@ const DonationLink = ({
 }) => {
   return (
     <div className={`${className || ''}`}>
-      <a href={link} target="_blank" onClick={onClick}>
+      <a href={link} target="_blank" onClick={onClick} rel="noreferrer">
         <span className="py-2 px-4 xl:px-8 text-xl xl:text-2xl text-primary bg-tertiary font-semibold rounded hover:bg-tertiary-light transition duration-300 cursor-pointer">
           {amount}
         </span>

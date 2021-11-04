@@ -37,12 +37,13 @@ export function HelpUsShareSection() {
         <Trans
           i18nKey="helpUs:helpUsText"
           components={[
-            <ShareDescription />,
+            <ShareDescription key="a" />,
             <a
               className="text-tertiary font-bold"
               href="https://www.instagram.com/general_paz_salta/"
               target="_blank"
               rel="noreferrer"
+              key="b"
             />,
           ]}
         />
