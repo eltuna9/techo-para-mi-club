@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import * as React from 'react'
 import {
   AppHeader,
@@ -5,11 +6,15 @@ import {
   HelpUsAccountSection,
   HelpUsDonateText,
   HelpUsLandingSection,
-  HelpUsPaymentSection,
+  HelpUsLinksSection,
+  // HelpUsPaymentSection,
   HelpUsShareSection,
+  HelpUsSuccessDonationSection,
 } from '../components'
 
 export default function Ayudanos() {
+  const router = useRouter()
+  const { gracias } = router.query
   return (
     <>
       <AppHeader
@@ -29,11 +34,22 @@ export default function Ayudanos() {
           output="MP_DEVICE_SESSION_ID"
         ></script>
       </AppHeader>
-      <HelpUsLandingSection />
-      <HelpUsDonateText />
-      <HelpUsAccountSection />
-      <HelpUsPaymentSection />
-      <HelpUsShareSection />
+      {gracias && (
+        <>
+          <HelpUsSuccessDonationSection />
+          <HelpUsShareSection />
+        </>
+      )}
+      {!gracias && (
+        <>
+          <HelpUsLandingSection />
+          <HelpUsDonateText />
+          <HelpUsAccountSection />
+          <HelpUsLinksSection />
+          {/* <HelpUsPaymentSection /> */}
+          <HelpUsShareSection />{' '}
+        </>
+      )}
 
       <Footer />
     </>

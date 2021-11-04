@@ -5,8 +5,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
-  console.log(req.body)
-
   const paymentData = {
     transaction_amount: Number(req.body.transactionAmount),
     token: req.body.token,
@@ -18,22 +16,20 @@ export default async function handler(
       email: req.body.email,
     },
   }
-  console.log('header', req.headers['X-meli-session-id'])
 
   try {
     const mpResponse = await mercadopago.payment.save(paymentData, {
       headers: {
+        //req.body.deviceToken es el valor devuelto por el script de seguridad de MP en el frontend
         ['X-meli-session-id']: req.body.deviceToken as string,
       },
     })
-    console.log('paymentResponse', mpResponse)
     res.status(200).json({
       status: mpResponse.body.status,
       statusDetail: mpResponse.body.status_detail,
       id: mpResponse.body.id,
     })
   } catch (error) {
-    console.log('returning error', error)
     res.status(400).send({ status: 'error' })
   }
 }

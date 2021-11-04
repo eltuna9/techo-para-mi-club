@@ -43,5 +43,8 @@
   "insufficientAmount": "Your payment method does not have enough founds",
   "authorizationNeeded": "You need to call your card provider to authorize this payment",
   "paymentThanksTitle": "Thank you for making a difference!",
-  "shareText": "Lets help these kids accomplish their dream!"
+  "shareText": "Let's help these kids accomplish their dream!",
+  "paymentLinksTitle": "Donating using a payment link",
+  "paymentLinksDescription": "Choose the amount you want to contribute with, all values are expressed in ARS (Argentinian Peso)",
+  "paymentSuccessDescription": "There not enough words to thank you for your support! Hence this gif 😉"
 }

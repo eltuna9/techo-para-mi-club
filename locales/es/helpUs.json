@@ -43,5 +43,8 @@
   "insufficientAmount": "No hay suficientes fondos disponibles en la cuenta asociada con tu tarjeta",
   "authorizationNeeded": "Es necesario autorizar el pago con tu banco",
   "paymentThanksTitle": "Gracias por hacer la diferencia!",
-  "shareText": "Ayudemos a este club a cumplir con el sueño de todos estos niños!"
+  "shareText": "Ayudemos a este club de barrio a cumplir con el sueño de todos estos niños!",
+  "paymentLinksTitle": "Doná usando uno de estos links de pago",
+  "paymentLinksDescription": "Elegí el monto que deseas donar, todos los valores están expresados en pesos argentinos (ARS)",
+  "paymentSuccessDescription": "No nos alcanzan las palabras para agradecerte tu apoyo! Por eso va el gif 😉. Entre todos vamos a lograr cumplir este gran sueño 🌈"
 }
