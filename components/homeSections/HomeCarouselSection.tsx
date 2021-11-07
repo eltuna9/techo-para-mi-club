@@ -23,7 +23,7 @@ export function HomeCarouselSection() {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             // @ts-ignore
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </div>
       </div>
