@@ -9,7 +9,7 @@ export function HelpUsLandingSection() {
   const { t } = useTranslation()
 
   const caretClickHanlder = () => {
-    const element = document.getElementById('account') as HTMLElement
+    const element = document.getElementById('donateText') as HTMLElement
     element.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
